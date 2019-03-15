@@ -1,0 +1,35 @@
+header {
+    max-width: 1000px;
+}
+
+main {
+    display: flex;
+    background-color: darkgrey;
+}
+
+nav {
+    background: darkslategray;
+    display: flex;
+}
+
+nav > ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    margin-right: 0;
+  }
+
+
+li > a {
+    color: white;
+    text-decoration: none;
+    padding: 0 0 0 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+li {
+    float: right;
+    background-color: black;
+    padding: 5px 15px 0px 15px;
+  }
