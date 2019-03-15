@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'inkchallenger.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'inkchallenger',
-        'USER': 'ogazzvhj',
-        'PASSWORD': '7X2LcZVlMpDFhQXMNwfi5YE_Ri_yesu2',
-        'HOST': 'isilo.db.elephantsql.com',
+        'USER': 'inkchallenger',
+        'PASSWORD': 'inkchallenger',
+        'HOST': 'theinkchallenger.cdeq9svlh2ju.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
