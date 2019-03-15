@@ -6,4 +6,4 @@ Technologies used
     HTML
     CSS
     Jquery
-    
+
