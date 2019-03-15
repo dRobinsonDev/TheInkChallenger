@@ -77,14 +77,14 @@ WSGI_APPLICATION = 'inkchallenger.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'inkchallenger',
-    'USER': 'ogazzvhj',
-    'PASSWORD': '7X2LcZVlMpDFhQXMNwfi5YE_Ri_yesu2',
-    'HOST': 'isilo.db.elephantsql.com',
-    'PORT': '5432',
-}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'inkchallenger',
+        'USER': 'ogazzvhj',
+        'PASSWORD': '7X2LcZVlMpDFhQXMNwfi5YE_Ri_yesu2',
+        'HOST': 'isilo.db.elephantsql.com',
+        'PORT': '5432',
+    }
 }
 
 # Password validation
