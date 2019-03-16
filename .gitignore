@@ -1,0 +1,6 @@
+main_app/__pycache__/
+inkchallenger/__pycache__/
+__pycache__/
+*.py[cod]
+*$py.class
+*.cpyt
