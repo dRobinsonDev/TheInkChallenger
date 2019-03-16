@@ -1,18 +1,36 @@
+body {
+    background-image: url('../images/avenged-sevenfold-sullivan.jpg');
+    background-size: cover;
+    font-family: 'Rock Salt', cursive;
+}
+
 header {
-    max-width: 1000px;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
     display: flex;
-    background-color: darkgrey;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
 }
 
-nav {
-    background: darkslategray;
+footer {
+    color: white;    
+    position: absolute;
+    bottom: 0;
+    background: black;
+    width: 100%;
+}
+
+.nav-right {
+    margin-right: 0;
     display: flex;
+    float: right;
 }
 
-nav > ul {
+ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -22,14 +40,26 @@ nav > ul {
 
 li > a {
     color: white;
+    -webkit-text-stroke: 1px black;
     text-decoration: none;
     padding: 0 0 0 10px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 25px;
+    text-decoration-color: currentcolor;
+
 }
 
 li {
-    float: right;
-    background-color: black;
+    float: left;
     padding: 5px 15px 0px 15px;
-  }
+}
+
+h1 {
+    color: white;
+    justify-content: center;
+    align-content: center;
+}
+
+.right {
+    float: right;
+}
