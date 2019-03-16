@@ -1,9 +1,0 @@
-Technologies used
-    Python
-    Django
-    AWS
-    JS
-    HTML
-    CSS
-    Jquery
-
