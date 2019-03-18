@@ -1,17 +1,20 @@
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import AbstractUser
-from datetime import date
 from django.db import models
+from datetime import date
 # from django.contrib.auth.models import User
 
 # If A belongs to B, A holds fk (id of B) and if 
 # upon deletion of B, A also needs to be deleted, than include cascade delete
 # Create your models here.
-    
+ 
+
+
+
 class Location(models.Model):
     name = models.CharField(max_length=100)
     address = models.TextField(max_length=240)
-    phone_number = models.IntegerField()
+    phone_number = models.IntegerField(default=0)
     email = models.CharField(max_length=100)
     social_media = ArrayField(ArrayField(
             models.CharField(max_length=10, blank=True),
@@ -25,7 +28,6 @@ class Artist(models.Model):
     address = models.CharField(max_length=200)
     phone_number = models.IntegerField()
     email = models.CharField(max_length=100)
-
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     
 
@@ -47,11 +49,12 @@ class Tattoo(models.Model):
 class MyUser(AbstractUser):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
-    phone_number = models.IntegerField()
+    phone_number = models.IntegerField(default=0)
     address = models.CharField(max_length=200)
     birthday = models.DateField('Date')
     
-    tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    # tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
+    # artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     
     
+   

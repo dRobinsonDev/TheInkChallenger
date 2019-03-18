@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic.edit import CreateView
 from django.views.generic.base import TemplateView
+
+#  end oauth
 
 # Create your views here.
 
@@ -15,3 +18,5 @@ class Contact(TemplateView):
 
 class Artist(TemplateView):
     template_name = 'artists.html'
+
+
