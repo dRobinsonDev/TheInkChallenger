@@ -2,27 +2,44 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Ink Challenger</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <nav>
+        <div class="nav-left">
             <ul>
                 <li><a class="logo-home" href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'about' %}">Artists</a></li>
-                <li><a href="{% url 'about' %}">Sign Up</a></li>
-                <li><a href="{% url 'about' %}">Log In</a></li>
             </ul>
-        </nav>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'artists' %}">Artists</a></li>
+                <li><a href="{% url 'about' %}">Sign Up</a></li>
+                <li><a href="{% url 'login' %}">Log In</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
     </header>
+    <br>
+    <br>
 
-    {% block content %}
-    {% endblock %}
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div>danillovieira7@gmail.com</div>
+        <div class="right">All Rights Reserved, &copy; 2019 PRV Ink &copy; The Ink Challenger &nbsp;</div>
+    </footer>
 </body>
+
 </html>

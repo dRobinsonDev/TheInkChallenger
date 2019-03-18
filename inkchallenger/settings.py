@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-import psycopg2
-
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -78,14 +76,15 @@ WSGI_APPLICATION = 'inkchallenger.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'inkchallenger',
-        'USER': 'ogazzvhj',
-        'PASSWORD': '7X2LcZVlMpDFhQXMNwfi5YE_Ri_yesu2',
-        'HOST': 'isilo.db.elephantsql.com',
+        'USER': 'inkchallenger',
+        'PASSWORD': 'inkchallenger',
+        'HOST': 'theinkchallenger.cdeq9svlh2ju.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -124,3 +123,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL = '/'
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/'
+
+AUTH_USER_MODEL = 'main_app.MyUser'

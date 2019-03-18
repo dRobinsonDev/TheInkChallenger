@@ -1,3 +1,6 @@
 main_app/__pycache__/
-main_app/migrations/__pycache__/
-inkchallenge/__pycache__/
+inkchallenger/__pycache__/
+__pycache__/
+*.py[cod]
+*$py.class
+*.cpyt
