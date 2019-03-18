@@ -1,12 +1,25 @@
 body {
+    font-family: 'Playfair Display SC', serif, 'Amiri', serif, Arial, Helvetica, sans-serif;
+}
+
+.home{
     background-image: url('../images/avenged-sevenfold-sullivan.jpg');
     background-size: cover;
-    font-family: 'Rock Salt', cursive;
+}
+.artist {
+    background-image: url('../images/old-man.jpg');
+    background-size: cover;
+}
+
+.tattoo {
+    background-image: url('../images/skull-tattoos-03021721.jpg');
+    background-size: cover;
 }
 
 header {
     justify-content: center;
     align-items: center;
+    background: black;
 }
 
 main {
@@ -30,23 +43,83 @@ footer {
     float: right;
 }
 
+.nav-right ul {
+    list-style: none;
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-right ul a {
+    display: block;
+    color: white;
+    /* -webkit-text-stroke: 1px black; */
+    text-decoration: none;
+    padding: 3px 10px;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration-color: currentcolor;
+}
+
+.nav-right ul li {
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-right ul li:hover{
+    /* background: black; */
+}
+
+.nav-right ul li ul {
+    display: none;
+}
+
+.nav-right ul li:hover > ul {
+    display: block;
+}
+
+.nav-right ul ul li {
+    float: none;
+}
+
 ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
     margin-right: 0;
-  }
+}
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-li > a {
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  background: red;
+}
+
+a {
     color: white;
-    -webkit-text-stroke: 1px black;
+    /* -webkit-text-stroke: 1px black; */
     text-decoration: none;
     padding: 0 0 0 10px;
     font-weight: bold;
     font-size: 25px;
     text-decoration-color: currentcolor;
-
 }
 
 li {
@@ -62,4 +135,14 @@ h1 {
 
 .right {
     float: right;
+}
+
+div > a {
+    color: white;
+    /* -webkit-text-stroke: 1px black; */
+    text-decoration: none;
+    padding: 0 0 0 10px;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration-color: currentcolor;
 }
