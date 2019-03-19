@@ -1,16 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-<<<<<<< HEAD
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
 
-=======
-from django.views.generic.edit import CreateView
-from django.views.generic.base import TemplateView
-
-#  end oauth
->>>>>>> 1932a7076f1a28ee90eb8a8ede114c57e8a545fe
 
 # Create your views here.
 

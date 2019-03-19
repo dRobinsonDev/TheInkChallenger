@@ -34,10 +34,12 @@ header li a {
     display: block;
     padding: 5px 5px;
     text-decoration: none;
+    min-width: 50px;
 }
 
 header li a:hover, .header .menu-btn:hover {
-    background-color: lightgray;
+    background-color: white;
+    color: black;
 }
 
 header .logo-home {
@@ -69,6 +71,7 @@ header .menu-icon .navicon {
     position: relative;
     transition: background .2s ease-out;
     width: 18px;
+    background: white;
 }
 
 header .menu-icon .navicon:before, header .menu-icon .navicon:after {
@@ -77,7 +80,8 @@ header .menu-icon .navicon:before, header .menu-icon .navicon:after {
     height: 100%;
     position: absolute;
     transition: all .2s ease-out;
-    width: 100%
+    width: 100%;
+    background: white;
 }
 
 header .menu-icon .navicon:before {
@@ -119,7 +123,8 @@ main {
     align-items: center;
     flex-flow: column;
     color: black;
-    -webkit-text-stroke: 1px white;
+    /* -webkit-text-stroke: 1px white; */
+    font-family: 'Amiri', serif;
 }
 
 footer {
@@ -131,7 +136,6 @@ footer {
 
 a {
     color: white;
-    /* -webkit-text-stroke: 1px black; */
     text-decoration: none;
     padding: 0;
     font-weight: bold;
@@ -150,8 +154,53 @@ a {
 h1 {
     color: white;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
+
+.oauth {
+    font-size: 35px;
+}
+
+.login {
+    border: 2px solid black;
+    width: 550px;
+    height: 700px;
+    padding: 40px 40px 70px 40px;
+}
+
+.login h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.login form p label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.login form input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.beginning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0 auto; */
+    height: 90vh;
+}
+
+label[for=id_password], label[for=id_username] {
+    margin-top: 40px;
+}
+
+
+
 
 
 
