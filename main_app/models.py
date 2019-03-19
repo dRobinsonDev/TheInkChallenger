@@ -16,12 +16,17 @@ class Location(models.Model):
     phone_number = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
 
+    def __str__(self):
+        return f"{self.name}"
+
 class Artist(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=200)
     phone_number = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
-    
+
+    def __str__(self):
+        return f"{self.name}"    
 
 class Appointment(models.Model):
     date = models.DateField('Date')
@@ -34,11 +39,17 @@ class Tattoo(models.Model):
     description = models.TextField(max_length=240)
     available = models.BooleanField()
 
+    def __str__(self):
+        return f"{self.name}"
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=150)
     phone_number = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.user}"
    
 class JoinTable(models.Model):
     appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE)
