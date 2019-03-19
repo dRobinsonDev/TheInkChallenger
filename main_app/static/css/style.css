@@ -32,7 +32,7 @@ header ul {
 
 header li a {
     display: block;
-    padding: 5px 5px;
+    padding: 5px 30px;
     text-decoration: none;
     min-width: 50px;
 }
@@ -81,15 +81,17 @@ header .menu-icon .navicon:before, header .menu-icon .navicon:after {
     position: absolute;
     transition: all .2s ease-out;
     width: 100%;
-    background: white;
+    background: rgba(255, 255, 255, 0.925);
 }
 
 header .menu-icon .navicon:before {
     top: 5px;
+    background: red;
 }
 
 header .menu-icon .navicon:after {
     top: -5px;
+    background: red;
 }
 
 header .menu-ham {
@@ -97,7 +99,8 @@ header .menu-ham {
 }
 
 header .menu-ham:checked ~ .menu {
-    max-height: 240px;
+    max-height: 340px;
+    
 }
 
 header .menu-ham:checked ~ .menu-icon .navicon {
@@ -114,6 +117,7 @@ header .menu-ham:checked ~ .menu-icon .navicon:after {
 
 header .menu-ham:checked ~ .menu-icon:not(.steps) .navicon:before, header .menu-ham:checked ~ .menu-icon:not(.steps) .navicon:after {
     top: 0;
+    background: rgba(0, 0, 0, 0.515);
 }
 
 
@@ -152,9 +156,9 @@ a {
 }
 
 h1 {
-    color: white;
+    color: rgba(255, 255, 255, 0.911);
     justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .oauth {
@@ -199,6 +203,17 @@ label[for=id_password], label[for=id_username] {
     margin-top: 40px;
 }
 
+.about p {
+    color: whitesmoke;
+}
+
+.artist main {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 
 
 

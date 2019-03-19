@@ -20,17 +20,17 @@
         </div>
         <input class="menu-ham" type="checkbox" id="menu-ham" />
         <label class="menu-icon" for="menu-ham"><span class="navicon"></span></label>
-            <ul class="menu">
-                <li><a href="{% url 'about' %}">About</a></li>
-                {% if user.is_authenticated %}
-                <li><a href="{% url 'artists' %}">Artists</a></li>
-                <li><a href="{% url 'tattoos' %}">Tattoos</a></li>
-                <li><a href="{% url 'login' %}">Log In</a></li>
-                {% else %}
-                <li><a href="{% url 'signup' %}">Sign Up</a>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-                {% endif %}
-            </ul>
+        <ul class="menu">
+            <li><a href="{% url 'about' %}">About</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'artists' %}">Artists</a></li>
+            <li><a href="{% url 'tattoos' %}">Tattoos</a></li>
+            {% else %}
+            <li><a href="{% url 'signup' %}">Sign Up</a>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            {% endif %}
+        </ul>
     </header>
     <br>
     <br>
