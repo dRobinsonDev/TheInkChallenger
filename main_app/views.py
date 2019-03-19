@@ -1,21 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-<<<<<<< HEAD
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
+from .models import User
 
-=======
-from django.views.generic.edit import CreateView
-from django.views.generic.base import TemplateView
-
-#  end oauth
->>>>>>> 1932a7076f1a28ee90eb8a8ede114c57e8a545fe
 
 # Create your views here.
 
 class Home(TemplateView):
     template_name = 'home.html'
+    def get_context_data(self, **kwargs):
+        context= {'data': 'data'}
+        return context
 
 class About(TemplateView):
     template_name = 'about.html'
@@ -45,4 +42,7 @@ def signup(request):
 
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
+
+  class Meta:
+    model = User 
   return render(request, 'registration/signup.html', context)
