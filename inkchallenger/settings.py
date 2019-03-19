@@ -94,14 +94,19 @@ WSGI_APPLICATION = 'inkchallenger.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'inkchallenger',
-        'USER': 'inkchallenger',
-        'PASSWORD': 'inkchallenger',
-        'HOST': 'theinkchallenger.cdeq9svlh2ju.us-east-1.rds.amazonaws.com',
+        'NAME': 'dc48l5k9of0mq5',
+        'USER': 'nxikdviqhxvdxd',
+        'PASSWORD': '7eb0943c9b690bffc6b6d05e7733184aca12be196b87a1f47f1330f1ee028a36',
+        'HOST': 'ec2-54-221-201-212.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'inkchallenger',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -146,4 +151,3 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
 
-AUTH_USER_MODEL = 'main_app.MyUser'
