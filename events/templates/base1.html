@@ -16,21 +16,13 @@
 
 <body class="home">
     <header>
-        <a class="logo-home" href="{% url 'events:home' %}">Home</a>
+        <a class="logo-home" href="{% url 'main_app:home' %}">Home</a>
         </div>
         <input class="menu-ham" type="checkbox" id="menu-ham" />
         <label class="menu-icon" for="menu-ham"><span class="navicon"></span></label>
             <ul class="menu">
-                <li><a href="{% url 'main_app:about' %}">About</a></li>
-                {% if user.is_authenticated %}
-                <li><a href="{% url 'main_app:artists' %}">Artists</a></li>
-                <li><a href="{% url 'main_app:tattoos' %}">Tattoos</a></li>
-                <li><a href="{% url 'main_app:login' %}">Log In</a></li>
-                {% else %}
-                <li><a href="{% url 'main_app:signup' %}">Sign Up</a>
-                <li><a href="{% url 'main_app:contact' %}">Contact</a></li>
-                {% endif %}
-            </ul>
+                </ul>
+              
     </header>
     <br>
     <br>
