@@ -1,53 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>The Ink Challenger</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Amatic+SC|Amiri|Playfair+Display+SC" rel="stylesheet">
-</head>
-
-<body class="tattoo">
-    <div>
-    <header>
-        <div class="nav-left">
-            <ul>
-                <li><a class="logo-home" href="{% url 'home' %}">Home</a></li>
-            </ul>
+{% extends 'base.html' %}
+{% block content %}
+    <main class="artist">
+        <h1 class="title">Artists</h1>
+        <div>
+        {% for artist in artists %}
+        <div class="artist-card">
+            <div class="artist-photo">
+                <img src="../static/images/6310171595_86392644e2_b.jpg" alt="">
+            </div>
+            <h3>{{artist.name}}</h3>
+            <p>{{artist.style}}</p>
         </div>
-        <div class="nav-right">
-            <ul>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'artists' %}">Artists</a></li>
-                <li><a href="{% url 'tattoos' %}">Tattoos</a></li>
-                <li><a href="{% url 'about' %}">Sign Up</a></li>
-                <li><a href="{% url 'login' %}">Log In</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-            </ul>
-        </div>
-    </header>
-    <br>
-    <br>
-
-    <main>
-       
-            <h1>PAGE DEDICATED TO ARTISTS & SHOPS</h1>
-            
-            <div>ARTIST</div>
-            <div>ARTIST</div>
-            <div>ARTIST</div>
-            <div>ARTIST</div>
-            
-            
-        </main>
-        <footer>
-            <div><a class="left" href="#">danillovieira7@gmail.com</a>
-                <a class="right" href="#">All Rights Reserved, &copy; 2019 PRV Ink &copy; The Ink Challenger &nbsp;</a></div>
-            </footer>
-        </div>
-        </body>
-        
-</html>
+        {% endfor %}
+    </div>
+    </main>
+{% endblock %}
