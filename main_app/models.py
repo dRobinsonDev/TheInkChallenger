@@ -12,7 +12,9 @@ from django.contrib.auth.models import User
 
 class Location(models.Model):
     name = models.CharField(max_length=100)
-    address = models.TextField(max_length=240)
+    street = models.TextField(max_length=240)
+    city = models.TextField(max_length=50)
+    state = models.TextField(max_length=2)
     phone_number = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
 
@@ -21,7 +23,7 @@ class Location(models.Model):
 
 class Artist(models.Model):
     name = models.CharField(max_length=100)
-    address = models.CharField(max_length=200)
+    style = models.CharField(max_length=200)
     phone_number = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
 

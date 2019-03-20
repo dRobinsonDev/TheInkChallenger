@@ -26,7 +26,10 @@ class Artist(ListView):
     model = Artist
     context_object_name = 'artists'
     
-
+class Shop(ListView):
+    template_name = 'shops.html'
+    model = Location
+    context_object_name = 'shops'
 
 class Tattoo(TemplateView):
     template_name = 'tattoos.html'
