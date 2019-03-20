@@ -3,13 +3,12 @@
 <main class="login-pg">
   <div class="beginning">
     <div class="login">
-      <h2>Login</h2>
+      <h2>Login</h2><br>
       <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Login</button>
-      </form>
-      <br>
+      </form><br>
       <h2><strong style="margin: 20px 0"> OR </strong></h2>
       <a class="oauth" href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
     </div>

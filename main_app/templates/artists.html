@@ -1,31 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
     <main class="artist">
-        <h1>Meet the Artists & Shops</h1>
-
+        <h1>Meet the Artists</h1>
+        {% for artist in artists %}
         <div class="artist-card">
             <div class="artist-photo">
                 <img src="../static/images/6310171595_86392644e2_b.jpg" alt="">
             </div>
-            <h3>Artist Name 1</h3>
+            <h3>{{artist.name}}</h3>
+            <p>{{artist.address}}</p>
         </div>
-        <div class="artist-card">
-            <div class="artist-photo">
-                <img src="../static/images/6310171595_86392644e2_b.jpg" alt="">
-            </div>
-            <h3>Artist Name 2</h3>
-        </div>
-        <div class="artist-card">
-            <div class="artist-photo">
-                <img src="../static/images/6310171595_86392644e2_b.jpg" alt="">
-            </div>
-            <h3>Artist Name 3</h3>
-        </div>
-        <div class="artist-card">
-            <div class="artist-photo">
-                <img src="../static/images/6310171595_86392644e2_b.jpg" alt="">
-            </div>
-            <h3>Artist Name 4</h3>
-        </div>
+        {% endfor %}
     </main>
 {% endblock %}
