@@ -26,19 +26,21 @@
             <li><a href="{% url 'artists' %}">Artists</a></li>
             <li><a href="{% url 'shops' %}">Shops</a></li>
             <li><a href="{% url 'logout' %}">Log Out {{user.first_name}}</a>
-            {% else %}
+                {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a>
-                <li><a href="{% url 'login' %}">Log In</a></li>
-                {% endif %}
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
         </ul>
     </header>
     {% block content %}
-      
-        {% endblock %}
-    <footer>
-        <div><a class="left" href="#">Contact PRV</a></div>
-        <div><a class="right" href="#">All Rights Reserved &copy; 2019 PRV Ink &copy; The Ink Challenger</a></div>
-    </footer>
+
+    {% endblock %}
+    <div class="footer-container">
+        <div class="footer">
+            <div><a class="left" href="#">Contact PRV</a></div>
+            <div><a class="right" href="#">All Rights Reserved &copy; 2019 PRV Ink &copy; The Ink Challenger</a></div>
+        </div>
+    </div>
 
 </body>
 
