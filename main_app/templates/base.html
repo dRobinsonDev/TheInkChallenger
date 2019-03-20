@@ -9,36 +9,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Ink Challenger</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Amatic+SC|Amiri|Playfair+Display+SC"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC|Rye|Vollkorn+SC" rel="stylesheet">
 
 </head>
 
-<body class="home">
+<body>
     <header>
-        <a class="logo-home" href="{% url 'home' %}">Home</a>
+        <a class="logo-home" href="{% url 'home' %}">the INK challenger</a>
         </div>
         <input class="menu-ham" type="checkbox" id="menu-ham" />
         <label class="menu-icon" for="menu-ham"><span class="navicon"></span></label>
-            <ul class="menu">
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'artists' %}">Artists</a></li>
-                <li><a href="{% url 'tattoos' %}">Tattoos</a></li>
-                <li><a href="{% url 'signup' %}">Sign Up</a>
+        <ul class="menu">
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'tattoos' %}">Tattoos</a></li>
+            <li><a href="{% url 'artists' %}">Artists</a></li>
+            <li><a href="{% url 'shops' %}">Shops</a></li>
+            <li><a href="{% url 'logout' %}">Log Out {{user.first_name}}</a>
+            {% else %}
+            <li><a href="{% url 'signup' %}">Sign Up</a>
                 <li><a href="{% url 'login' %}">Log In</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-            </ul>
+                {% endif %}
+        </ul>
     </header>
-    <br>
-    <br>
-    <br>
-    <br>
-    <main>
-        {% block content %}
+    {% block content %}
+      
         {% endblock %}
-    </main>
     <footer>
-        <div><a class="left" href="#">danillovieira7@gmail.com</a></div>
+        <div><a class="left" href="#">Contact PRV</a></div>
         <div><a class="right" href="#">All Rights Reserved &copy; 2019 PRV Ink &copy; The Ink Challenger</a></div>
     </footer>
 

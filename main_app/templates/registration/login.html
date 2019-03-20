@@ -1,14 +1,17 @@
 {% extends "base.html" %}
-
-
 {% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
-   <br>
-  <p><strong>-- OR --</strong></p>
-  <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
+<main class="login-pg">
+  <div class="beginning">
+    <div class="login">
+      <h2>Login</h2><br>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+      </form><br>
+      <h2><strong style="margin: 20px 0"> OR </strong></h2>
+      <a class="oauth" href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
+    </div>
+  </div>
+</main>
 {% endblock %}
