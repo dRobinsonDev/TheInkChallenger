@@ -1,7 +1,6 @@
 from calendar import HTMLCalendar
 from datetime import datetime as dtime, date, time
-import datetime
-from .models import Event
+from .models import *
 
 
 class EventCalendar(HTMLCalendar):
@@ -16,7 +15,9 @@ class EventCalendar(HTMLCalendar):
         events_from_day = events.filter(day__day=day)
         events_html = "<ul>"
         for event in events_from_day:
-            events_html += event.get_absolute_url() + "<br>"
+            artist = Artist.objects.get(id=event.artist)
+            print(artist)
+            events_html += "<br>" + event.get_absolute_url() + "<br> - "+ artist.name + "<br>"
         events_html += "</ul>"
 
         if day == 0:

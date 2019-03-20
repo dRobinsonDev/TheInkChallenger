@@ -7,12 +7,12 @@ from datetime import date
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.urls import reverse
+from django import forms
 # If A belongs to B, A holds fk (id of B) and if 
 # upon deleti
 # on of B, A also needs to be deleted, than include cascade delete
 # Create your models here.
  
-
 
 
 class Location(models.Model):
@@ -45,7 +45,7 @@ class Tattoo(models.Model):
     style = models.CharField(max_length=100)
     description = models.TextField(max_length=240)
     url = models.CharField(max_length=100, default='')
-    available = models.BooleanField()
+    available = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.name}"
@@ -72,11 +72,18 @@ class Photo(models.Model):
     def __str__(self):
         return f"{self.artist} {self.url}"
 
+c = Artist.objects.all()
+choices = []
+for choice in c:
+    choices.append((choice.id, choice.name))
+    print(choice.id, choice.name)
+
 class Event(models.Model):
     day = models.DateField(u'Day of the event', help_text=u'Day of the event')
     start_time = models.TimeField(u'Starting time', help_text=u'Starting time')
     end_time = models.TimeField(u'Final time', help_text=u'Final time')
     notes = models.TextField(u'Textual Notes', help_text=u'Textual Notes', blank=True, null=True)
+    artist = models.IntegerField(choices=choices, default=choices[0])
  
     class Meta:
         verbose_name = u'Scheduling'
@@ -101,10 +108,10 @@ class Event(models.Model):
         if self.end_time <= self.start_time:
             raise ValidationError('Ending time must be after starting time')
  
-        events = Event.objects.filter(day=self.day)
+        events = Event.objects.filter(day=self.day, artist=self.artist)
         if events.exists():
             for event in events:
                 if self.check_overlap(event.start_time, event.end_time, self.start_time, self.end_time):
                     raise ValidationError(
-                        'There is an overlap with another event: ' + str(event.day) + ', ' + str(
+                        'There artist already has an appointment on : ' + str(event.day) + ', ' + str(
                             event.start_time) + '-' + str(event.end_time))
