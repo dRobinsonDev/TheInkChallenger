@@ -131,3 +131,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = 'main_app.MyUser'
+
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
