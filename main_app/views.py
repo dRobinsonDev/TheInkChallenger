@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
-from .models import User
+from django.views.generic import ListView, DetailView
+from .models import User, Artist, Location, Tattoo, Appointment, Profile, Photo
 
 
 # Create your views here.
@@ -23,9 +24,15 @@ class About(TemplateView):
 class Contact(TemplateView):
     template_name = 'contact.html'
 
-
-class Artist(TemplateView):
+class Artist(ListView):
     template_name = 'artists.html'
+    model = Artist
+    context_object_name = 'artists'
+    
+class Shop(ListView):
+    template_name = 'shops.html'
+    model = Location
+    context_object_name = 'shops'
 
 
 class Tattoo(TemplateView):
@@ -56,6 +63,6 @@ def signup(request):
 
 
 def search_artist(request):
-  
+
   if request.method == 'GET' : 
     search_query = request.GET.get('search_box', None)
