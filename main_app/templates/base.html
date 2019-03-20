@@ -16,7 +16,7 @@
 
 <body class="home">
     <header>
-        <a class="logo-home" href="{% url 'home' %}">Home</a>
+        <a class="logo-home" href="{% url 'home' %}">The Ink Challenger</a>
         </div>
         <input class="menu-ham" type="checkbox" id="menu-ham" />
         <label class="menu-icon" for="menu-ham"><span class="navicon"></span></label>
@@ -27,9 +27,10 @@
             <li><a href="{% url 'tattoos' %}">Tattoos</a></li>
             {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a>
-            <li><a href="{% url 'login' %}">Log In</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
-            {% endif %}
+                <li><a href="{% url 'login' %}">Log In</a></li>
+                {% endif %}
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'logout' %}">Log Out {{user.first_name}}</a>
         </ul>
     </header>
     <br>

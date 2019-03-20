@@ -57,4 +57,9 @@ class JoinTable(models.Model):
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
+class Photo(models.Model):
+    url = models.CharField(max_length=250)
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.artist} {self.url}"
