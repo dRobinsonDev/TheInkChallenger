@@ -4,13 +4,13 @@
 
 
 body {
-    font-family: 'Playfair Display SC', serif, 'Amiri', serif, Arial, Helvetica, sans-serif;
+    font-family: 'Vollkorn SC', serif, 'Rye', cursive, Arial, Helvetica, sans-serif;
 }
 
 .home{
     background-image: url('../images/background/flavio-gasperini-596276-unsplash.jpg');
     background-size: cover;
-    height: 100vh;
+    /* height: 100vh; */
 }
 .artist {
     background-image: url('../images/background/camila-waz-1439249-unsplash.jpg');
@@ -22,13 +22,18 @@ body {
     background-size: cover;
 }
 
+.login-pg {
+    background-image: url('../images/background/jake-davies-235504-unsplash.jpg')
+}
+
 header {
     /* box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1); */
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     z-index: 3;
     height: 230px;
     background: rgb(37, 37, 37);
+    font-family: 'Rye', cursive;
 }
 
 header ul {
@@ -53,7 +58,7 @@ header li a:hover, .header .menu-btn:hover {
 header .logo-home {
     display: block;
     float: left;
-    font-size: 18px;
+    font-size: 24px;
     padding: 20px 30px;
     text-decoration: none;
 }
@@ -134,25 +139,38 @@ main {
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    color: black;
-    /* -webkit-text-stroke: 1px white; */
-    font-family: 'Amiri', serif;
+    /* color: black; */
+    font-family: 'Vollkorn SC', serif;
+    margin: 0;
 }
 
-footer {
-    color: white;    
-    position: absolute;
+footer {   
+    /* position: absolute; */
     bottom: 0;
     width: 100%;
+    height: 30px;
+    background: rgb(37, 37, 37);
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+footer div {
+    /* display: flex; */
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+
 }
 
 a {
     color: white;
     text-decoration: none;
     padding: 0;
-    font-weight: bold;
-    font-size: 15px;
     text-decoration-color: currentcolor;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .right {
@@ -164,27 +182,45 @@ a {
 }
 
 h1 {
-    color: rgba(255, 255, 255, 0.911);
+    color: rgba(255, 250, 250, 0.911);
     justify-content: center;
     text-align: center;
 }
 
-.oauth {
-    font-size: 35px;
-}
-
-.login {
-    border: 2px solid black;
-    width: 550px;
-    height: 700px;
-    padding: 40px 40px 70px 40px;
+h2 {
+    color: rgba(255, 250, 250, 0.911);
+    justify-content: center;
+    text-align: center;
 }
 
 .login h2 {
+    font-size: 35px;
+}
+
+.oauth {
+    font-size: 35px;
+    color: rgba(255, 250, 250, 0.911);
+}
+
+.beginning {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
+    margin: 0 auto;
+    min-height: 800px;
+}
+.login {
+    border: 5px solid rgb(255, 250, 250);
+    width: 450px;
+    padding: 40px 40px 40px 40px;
+    /* margin: 30px; */
+}
+
+.login h2, .login a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 40px; */
 }
 
 .login form p label {
@@ -193,22 +229,29 @@ h1 {
     align-items: center;
 }
   
-.login form input {
+.login form input, .login form label {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
 }
 
-.beginning {
+.login form button {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: 0 auto; */
-    height: 90vh;
-}
-
-label[for=id_password], label[for=id_username] {
+    margin: 0 auto;
     margin-top: 40px;
+}
+
+.login label, label[for=id_password], label[for=id_username] {
+    margin-top: 40px;
+    color: rgba(255, 250, 250, 0.911);
+}
+
+.login .helptext {
+    display: none;
 }
 
 .about p {

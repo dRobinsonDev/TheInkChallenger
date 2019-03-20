@@ -1,29 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="beginning">
-<div class="login">
-<h2>Sign Up</h2>
+<main class="login-pg">
+    <div class="beginning">
+        <div class="login">
+            <h2>Sign Up</h2>
 
-{% if error_message %}<p class="red-text">{{error_message}}</p>{% endif %}
+            {% if error_message %}<p class="red-text">{{error_message}}</p>{% endif %}
 
-<form action="{% url 'signup' %}" method="post">
-{% csrf_token %}
+            <form action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
 
-{{form.as_p}}
-<label for="first_name">First Name: </label>
-<input type="text" placeholder="First Name">
-<label for="last_name">Last Name: </label>
-<input type="text" placeholder="Last Name">
-<label for="username">Username: </label>
-<input type="text" placeholder="username">
-<label for="email">Email: </label>
-<input type="text" placeholder="Email">
-
-<input type="submit" class="btn" value="Sign Up">
-</form>
-<p><strong>-- OR --</strong></p>
-<a class="oauth" href="{% url 'social:begin' 'google-oauth2' %}">Signup with Google</a><br>
-</div>
-</div>
-
+                <label for="first_name">First Name: </label>
+                <input type="text">
+                <label for="last_name">Last Name: </label>
+                <input type="text">
+                <label for="email">Email: </label>
+                <input type="text">
+                {{form.as_p}}
+                <button type="submit" class="btn" value="Sign Up">Sign Up</button>
+            </form>
+            <h2><strong>OR</strong></h2>
+            <a class="oauth" href="{% url 'social:begin' 'google-oauth2' %}">Sign Up with Google</a>
+        </div>
+    </div>
+</main>
 {% endblock %}
