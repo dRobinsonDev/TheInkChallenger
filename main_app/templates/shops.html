@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="artist">
+        <h1 class="title">Shops</h1>
+        <div>
+        {% for shop in shops %}
+        <div class="artist-card">
+            <div class="artist-photo">
+                <img src="../static/images/first-female-tattoo-artist.jpg" alt="">
+            </div>
+            <h3>{{shop.name}}</h3>
+            <p>{{shop.city}}, {{shop.state.upper}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    </main>
+{% endblock %}
