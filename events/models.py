@@ -11,11 +11,7 @@ class Event(models.Model):
     start_time = models.TimeField(u'Starting time', help_text=u'Starting time')
     end_time = models.TimeField(u'Final time', help_text=u'Final time')
     notes = models.TextField(u'Textual Notes', help_text=u'Textual Notes', blank=True, null=True)
-    field1 = forms.DateField(
-    widget=forms.SelectDateWidget(
-        empty_label=("Choose Year", "Choose Month", "Choose Day"),
-    ),
-)
+
  
     class Meta:
         verbose_name = u'Schedules'
