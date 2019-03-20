@@ -4,16 +4,22 @@ from __future__ import unicode_literals
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.urls import reverse
+from django import forms
  
 class Event(models.Model):
     day = models.DateField(u'Day of the event', help_text=u'Day of the event')
     start_time = models.TimeField(u'Starting time', help_text=u'Starting time')
     end_time = models.TimeField(u'Final time', help_text=u'Final time')
     notes = models.TextField(u'Textual Notes', help_text=u'Textual Notes', blank=True, null=True)
+    field1 = forms.DateField(
+    widget=forms.SelectDateWidget(
+        empty_label=("Choose Year", "Choose Month", "Choose Day"),
+    ),
+)
  
     class Meta:
-        verbose_name = u'Scheduling'
-        verbose_name_plural = u'Scheduling'
+        verbose_name = u'Schedules'
+        verbose_name_plural = u'Schedules'
  
     def check_overlap(self, fixed_start, fixed_end, new_start, new_end):
         overlap = False
