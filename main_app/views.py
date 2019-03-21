@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
+from django.views.generic.base import TemplateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.shortcuts import redirect
 import random
 from .models import User, Artist, Location, Tattoo as TattooModel, Appointment, Profile, Photo
@@ -26,18 +27,20 @@ class About(TemplateView):
 class Contact(TemplateView):
     template_name = 'contact.html'
 
-class Artist(ListView):
+class ArtistList(ListView):
     template_name = 'artists.html'
     model = Artist
     context_object_name = 'artists'
     
-class Shop(ListView):
+class ShopList(ListView):
     template_name = 'shops.html'
     model = Location
     context_object_name = 'shops'
 
-class Tattoo(TemplateView):
+class TattooList(ListView):
     template_name = 'tattoos.html'
+    model = Tattoo
+    context_object_name = 'tattoos'
 
 class Appointment(TemplateView):
     template_name = 'appointments.html'
