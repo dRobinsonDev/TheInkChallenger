@@ -56,6 +56,13 @@ def Create_Event(request):
         data = event_form.cleaned_data
         print(data)
         e = event_form.save()
+        join_data = JoinTable()
+        join_data.event_id = e.id
+        join_data.artist_id = e.artist
+        join_data.tattoo_id = request.session['randomTat']
+        join_data.profile_id = request.user.id
+        join_data.location_id = e.location
+        join_data.save()
         return render(request, 'events/checkout.html', context)
       else:
         error_message = 'That time is booked please pick anoter time.'

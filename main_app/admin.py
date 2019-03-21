@@ -55,4 +55,5 @@ admin.site.register(Appointment)
 admin.site.register(Profile)
 admin.site.register(Artist)
 admin.site.register(Location)
+admin.site.register(JoinTable)
 

@@ -53,18 +53,19 @@ class Tattoo(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    address = models.CharField(max_length=150)
-    phone_number = models.CharField(max_length=100)
-    tattoo = models.CharField(max_length=100)
+    address = models.CharField(max_length=150, default=None)
+    phone_number = models.CharField(max_length=100, default=None)
+    tattoo = models.CharField(max_length=100, default="")
 
     def __str__(self):
         return f"{self.user}"
    
 class JoinTable(models.Model):
-    appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE)
-    tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    appointment_id = models.ForeignKey(Appointment, on_delete=models.CASCADE)
+    tattoo_id = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
+    artist_id = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    location_id = models.ForeignKey(Location, on_delete=models.CASCADE)
 
 class Photo(models.Model):
     url = models.CharField(max_length=250)
@@ -77,6 +78,10 @@ c = Artist.objects.all()
 choices = []
 for choice in c:
     choices.append((choice.id, choice.name))
+s = Location.objects.all()
+shops = []
+for shop in c:
+    shops.append((shop.id, shop.name))
 
 class Event(models.Model):
     day = models.DateField(u'Day of the event')
@@ -84,6 +89,7 @@ class Event(models.Model):
     end_time = models.TimeField(u'Final time')
     notes = models.TextField(u'Textual Notes', blank=True, null=True)
     artist = models.IntegerField(choices=choices, default=choices[0])
+    location = models.IntegerField(choices=shops, default=shops[0])
  
     class Meta:
         verbose_name = u'Scheduling'
