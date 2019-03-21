@@ -10,4 +10,8 @@ from .models import *
 class EventForm(ModelForm):
     class Meta:
         model = Event
-        fields = ['day','start_time','end_time','notes','artist']
+        fields = ['day','start_time','notes','artist']
+        widgets = {
+                'day': forms.DateTimeInput(attrs={'id': 'datetime-input'}),
+                'start_time': forms.DateTimeInput(attrs={'id': 'timepicker'})
+            }

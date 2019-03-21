@@ -46,7 +46,9 @@ class Appointment(TemplateView):
     template_name = 'appointments.html'
 
 def Create_Event(request):
-    error_message = request.session['randomTat']
+    error_message = ''
+    if 'randomTat' in request.session:
+        error_message = request.session['randomTat']
     
     if request.method == "POST":
       event_form = EventForm(request.POST)
@@ -67,14 +69,14 @@ def Create_Event(request):
     # })
 
 def random_Tattoo(request):
-    if request.session['randomTat']:
+    if 'randomTat' in request.session:
         rand= request.session['randomTat']
         print(rand)
         context = { 'rand': rand }
     else: 
         rand= random.choice(TattooModel.objects.all())  # filter style & results next
         request.session['randomTat'] = rand.url # pass vars like PHP
-        context = { 'rand': rand }
+        context = { 'rand': request.session['randomTat'], }
     print(context)
     return render(request, 'tattoos/details.html', context)
     # return HttpResponse(f'<img class="randomTat" src="{rand.url}"/>')
