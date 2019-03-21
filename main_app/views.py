@@ -64,9 +64,15 @@ def Create_Event(request):
     # })
 
 def random_Tattoo(request):
-    rand= random.choice(TattooModel.objects.all())
-    request.session['randomTat'] = rand.url # pass vars like PHP
-    context = { 'rand': rand }
+    if request.session['randomTat']:
+        rand= request.session['randomTat']
+        print(rand)
+        context = { 'rand': rand }
+    else: 
+        rand= random.choice(TattooModel.objects.all())  # filter style & results next
+        request.session['randomTat'] = rand.url # pass vars like PHP
+        context = { 'rand': rand }
+    print(context)
     return render(request, 'tattoos/details.html', context)
     # return HttpResponse(f'<img class="randomTat" src="{rand.url}"/>')
 
