@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Ink Challenger</title>
+    <link rel="shortcut icon" href="../static/images/inklogo-inverted.png">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC|Rye|Vollkorn+SC" rel="stylesheet">
 
@@ -15,7 +16,7 @@
 
 <body>
     <header>
-        <a class="logo-home" href="{% url 'home' %}">the INK challenger</a>
+            <a class="logo-home" href="{% url 'home' %}"><img src="../static/images/inklogo-inverted.png" style="width: 70px;"></a>
         </div>
         <input class="menu-ham" type="checkbox" id="menu-ham" />
         <label class="menu-icon" for="menu-ham"><span class="navicon"></span></label>
@@ -26,19 +27,22 @@
             <li><a href="{% url 'artists' %}">Artists</a></li>
             <li><a href="{% url 'shops' %}">Shops</a></li>
             <li><a href="{% url 'logout' %}">Log Out {{user.first_name}}</a>
-            {% else %}
+                {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a>
-                <li><a href="{% url 'login' %}">Log In</a></li>
-                {% endif %}
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
         </ul>
     </header>
+    <div id="ink-logo"><p>The INK Challenger</p></div>
     {% block content %}
-      
-        {% endblock %}
-    <footer>
-        <div><a class="left" href="#">Contact PRV</a></div>
-        <div><a class="right" href="#">All Rights Reserved &copy; 2019 PRV Ink &copy; The Ink Challenger</a></div>
-    </footer>
+
+    {% endblock %}
+    <div class="footer-container">
+        <div class="footer">
+            <div><a class="left" href="#">Contact PRV</a></div>
+            <div><a class="right" href="#">All Rights Reserved &copy; 2019 PRV Ink &copy; The Ink Challenger</a></div>
+        </div>
+    </div>
 
 </body>
 
