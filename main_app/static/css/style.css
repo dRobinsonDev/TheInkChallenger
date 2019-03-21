@@ -1,16 +1,17 @@
 * {
-    margin: 0;
+    margin: 0 auto;
 }
 
 
 body {
     font-family: 'Vollkorn SC', serif, 'Rye', cursive, Arial, Helvetica, sans-serif;
+    background: rgb(37, 37, 37);
 }
 
-.home{
-    background-image: url('../images/background/flavio-gasperini-596276-unsplash.jpg');
+.contact {
+    background-image: url('../images/background/horizontal/flavio-gasperini-596276-unsplash_crop.jpg');
     background-size: cover;
-    /* height: 100vh; */
+    min-height: 700px;
 }
 .artist {
     background-image: url('../images/background/romina-farias-778232-unsplash.jpg');
@@ -18,20 +19,22 @@ body {
 }
 
 .tattoo {
-    background-image: url('../images/background/feliperizo-co-heart-made-505560-unsplash.jpg');
+    background-image: url('../images/background/horizontal/feliperizo-co-heart-made-505560-unsplash.jpg');
     background-size: cover;
+    min-height: 600px;
 }
 
 .login-pg {
-    background-image: url('../images/background/jake-davies-235504-unsplash.jpg')
+    background-image: url('../images/background/jake-davies-235504-unsplash.jpg');
+    background-size: cover;
 }
 
 header {
-    /* box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1); */
     /* position: fixed; */
+    max-width: 1400px;
     width: 100%;
     z-index: 3;
-    height: 230px;
+    min-height: 50px;
     background: rgb(37, 37, 37);
     font-family: 'Rye', cursive;
 }
@@ -59,7 +62,7 @@ header .logo-home {
     display: block;
     float: left;
     font-size: 24px;
-    padding: 20px 30px;
+    padding: 10px 30px;
     text-decoration: none;
 }
 
@@ -67,6 +70,7 @@ header .menu {
     clear: both;
     max-height: 0;
     transition: max-height .2s ease-out;
+    margin-right: 0;
 }
 
 header .menu-icon {
@@ -133,35 +137,44 @@ header .menu-ham:checked ~ .menu-icon:not(.steps) .navicon:before, header .menu-
 
 }
 
+#ink-logo {
+    /* display: flex; */
+    max-width: 1400px;
+    min-height: 130px;
+    margin-top: 30px;
+}
+
+#ink-logo p {
+    font-family: 'Rye', cursive;
+    font-size: 85px;
+    color: rgb(255, 250, 250);
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0 auto;
+    text-align: center;
+}
 
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    /* color: black; */
+    /* background: rgb(255, 250, 250); */
     font-family: 'Vollkorn SC', serif;
     margin: 0;
+    /* margin-bottom: 50px; */
 }
 
-footer {   
-    position: relative;
+.footer {   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: fixed; */
     bottom: 0;
-    width: 100%;
+    max-width: 1400px;
     height: 30px;
     background: rgb(37, 37, 37);
-    /* justify-content: center; */
-    align-items: center;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-footer div {
-    /* display: flex; */
-    text-align: center;
-    vertical-align: middle;
-    align-items: center;
-
+    margin: 0 auto;
 }
 
 a {
@@ -188,7 +201,8 @@ h1 {
 }
 
 main .title {
-    padding: 20px;
+    padding-top: 60px;
+    padding-bottom: 30px;
     font-size: 50px;
     -webkit-text-stroke: 1px black;
     font-family: 'Rye', cursive;
@@ -202,11 +216,12 @@ h2 {
 
 .login h2 {
     font-size: 35px;
+    color: white;
 }
 
 .oauth {
     font-size: 35px;
-    color: rgba(255, 250, 250, 0.911);
+    color: white;
 }
 
 .beginning {
@@ -227,7 +242,6 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-bottom: 40px; */
 }
 
 .login form p label {
@@ -260,7 +274,9 @@ h2 {
 
 .login label, label[for=id_password], label[for=id_username] {
     margin-top: 40px;
-    color: rgba(255, 250, 250, 0.911);
+    /* color: rgba(255, 250, 250, 0.911); */
+    color: white;
+    font-size: 20px;
 }
 
 .login .helptext {
@@ -271,16 +287,15 @@ h2 {
     color: whitesmoke;
 }
 
-.artist div {
+.artist div, .tattoo div {
     display: flex;
     flex-flow: row wrap;
-    /* align-items: center; */
     justify-content: space-around;
 }
 
 div .artist-card {
     display: inline;
-    padding: 10px;
+    padding: 20px 10px;
     text-align: center;
     width: 300px;
 }
@@ -289,14 +304,62 @@ div .artist-card {
     max-width: 300px;
     max-height: 300px;
     background-size: cover;
+    border-radius: 50%;
+    /* border: 5px solid rgb(231, 231, 231); */
 }
 
-.artist h3 {
+.tattoo img {
+    max-width: 300px;
+    max-height: 300px;
+    background-size: cover;
+    border-radius: 2%;
+    /* border: 5px solid rgb(231, 231, 231); */
+}
+
+.artist h3, .tattoo h3 {
     color: rgb(255, 250, 250);
 }
 
-.artist p {
+.artist p, .tattoo p {
     color: rgb(255, 250, 250);
+}
+
+.home {
+    /* border-top: 3px solid rgb(255, 250, 250);
+    border-bottom: 3px solid rgb(255, 250, 250); */
+    background: rgb(255, 250, 250);
+}
+
+.home .challenge {
+    padding: 30px 10px 20px 10px;
+    font-family: 'Rye', cursive;
+    max-width: 1400px;
+}
+
+.challenge h1, .xpl-text p, .xpl-text a {
+    color: rgb(37, 37, 37);
+}
+
+.home-img img {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 600px;
+    max-width: 1800px;
+    background-size: contain;
+}
+
+.xpl-text {
+    width: 80%;
+    color: rgb(221, 221, 221);
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 30px; 
+    font-family: 'Patrick Hand', cursive;   
+}
+
+.xpl-text a {
+    max-width: 1400px;
 }
 
 
@@ -320,4 +383,25 @@ div .artist-card {
     h1 {
         font-size: 30px;
     }
+}
+/* random tat css */
+.randomTat {
+    width: 100px;
+    height: 100px;
+}
+/* event css */
+#event {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+#event form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.error {
+    color:red;
 }
