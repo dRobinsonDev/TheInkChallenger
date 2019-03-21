@@ -73,16 +73,16 @@ class Photo(models.Model):
     def __str__(self):
         return f"{self.artist} {self.url}"
 
-c = Artist.objects.all()
-choices = []
-for choice in c:
-    choices.append((choice.id, choice.name))
 
 class Event(models.Model):
     day = models.DateField(u'Day of the event')
     start_time = models.TimeField(u'Starting time')
     end_time = models.TimeField(u'Final time')
     notes = models.TextField(u'Textual Notes', blank=True, null=True)
+    c = Artist.objects.all()
+    choices = []
+    for choice in c:
+        choices.append((choice.id, choice.name))
     artist = models.IntegerField(choices=choices, default=choices[0])
  
     class Meta:
