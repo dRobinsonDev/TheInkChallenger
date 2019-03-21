@@ -104,7 +104,7 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'inkchallenger',
+#         'NAME': 'mylocaldb',
 #     }
 # }
 
