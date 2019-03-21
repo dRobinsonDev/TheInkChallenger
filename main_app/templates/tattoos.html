@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 <main class="tattoo">
-    <h1 class="title">PAGE DEDICATED TO TATTOOS</h1>
+    <h1 class="title">Meet Your TATTOO</h1>
+
+
     <div>
-        <div>Style Name</div>
-        <div>Style Name</div>
-        <div>Style Name</div>
-        <div>Style Name</div>
+        {% for tattoo in tattoos %}
+        
+        <div class="artist-card">
+            <div class="artist-photo">
+                <img src="{{tattoo.url}}" style="height: 300px; width: 300px">
+            </div>
+            <h3>{{tattoo.name}}</h3>
+            <p>{{tattoo.style.upper}}</p>
+        </div>
+        
+        {% endfor %}
     </div>
 </main>
 {% endblock %}

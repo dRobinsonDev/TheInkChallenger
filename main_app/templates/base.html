@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <a class="logo-home" href="{% url 'home' %}">the INK challenger</a>
+            <a class="logo-home" href="{% url 'home' %}"><img src="../static/images/inklogo-inverted.png" style="width: 70px;"></a>
         </div>
         <input class="menu-ham" type="checkbox" id="menu-ham" />
         <label class="menu-icon" for="menu-ham"><span class="navicon"></span></label>
@@ -32,6 +32,7 @@
             {% endif %}
         </ul>
     </header>
+    <div id="ink-logo"><p>The INK Challenger</p></div>
     {% block content %}
 
     {% endblock %}

@@ -11,6 +11,7 @@ body {
 .contact {
     background-image: url('../images/background/horizontal/flavio-gasperini-596276-unsplash_crop.jpg');
     background-size: cover;
+    min-height: 700px;
 }
 .artist {
     background-image: url('../images/background/romina-farias-778232-unsplash.jpg');
@@ -18,9 +19,9 @@ body {
 }
 
 .tattoo {
-    background-image: url('../images/background/feliperizo-co-heart-made-505560-unsplash.jpg');
+    background-image: url('../images/background/horizontal/feliperizo-co-heart-made-505560-unsplash.jpg');
     background-size: cover;
-    height: 100%;
+    min-height: 600px;
 }
 
 .login-pg {
@@ -28,16 +29,12 @@ body {
     background-size: cover;
 }
 
-.artist, .tattoo, .login-pg {
-    min-height: 100%;
-}
-
 header {
     /* position: fixed; */
     max-width: 1400px;
     width: 100%;
     z-index: 3;
-    height: 230px;
+    min-height: 50px;
     background: rgb(37, 37, 37);
     font-family: 'Rye', cursive;
 }
@@ -65,7 +62,7 @@ header .logo-home {
     display: block;
     float: left;
     font-size: 24px;
-    padding: 20px 30px;
+    padding: 10px 30px;
     text-decoration: none;
 }
 
@@ -73,6 +70,7 @@ header .menu {
     clear: both;
     max-height: 0;
     transition: max-height .2s ease-out;
+    margin-right: 0;
 }
 
 header .menu-icon {
@@ -139,6 +137,23 @@ header .menu-ham:checked ~ .menu-icon:not(.steps) .navicon:before, header .menu-
 
 }
 
+#ink-logo {
+    /* display: flex; */
+    max-width: 1400px;
+    min-height: 130px;
+    margin-top: 30px;
+}
+
+#ink-logo p {
+    font-family: 'Rye', cursive;
+    font-size: 85px;
+    color: rgb(255, 250, 250);
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
 main {
     display: flex;
     justify-content: center;
@@ -162,10 +177,6 @@ main {
     margin: 0 auto;
 }
 
-.footer {
-    /* margin: 0 auto; */
-}
-
 a {
     color: white;
     text-decoration: none;
@@ -181,7 +192,6 @@ a {
 
 .left {
     float: left;
-    padding-top: 5px;
 }
 
 h1 {
@@ -206,11 +216,12 @@ h2 {
 
 .login h2 {
     font-size: 35px;
+    color: white;
 }
 
 .oauth {
     font-size: 35px;
-    color: rgba(255, 250, 250, 0.911);
+    color: white;
 }
 
 .beginning {
@@ -231,7 +242,6 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-bottom: 40px; */
 }
 
 .login form p label {
@@ -264,7 +274,9 @@ h2 {
 
 .login label, label[for=id_password], label[for=id_username] {
     margin-top: 40px;
-    color: rgba(255, 250, 250, 0.911);
+    /* color: rgba(255, 250, 250, 0.911); */
+    color: white;
+    font-size: 20px;
 }
 
 .login .helptext {
@@ -275,10 +287,9 @@ h2 {
     color: whitesmoke;
 }
 
-.artist div {
+.artist div, .tattoo div {
     display: flex;
     flex-flow: row wrap;
-    /* align-items: center; */
     justify-content: space-around;
 }
 
@@ -297,11 +308,19 @@ div .artist-card {
     /* border: 5px solid rgb(231, 231, 231); */
 }
 
-.artist h3 {
+.tattoo img {
+    max-width: 300px;
+    max-height: 300px;
+    background-size: cover;
+    border-radius: 2%;
+    /* border: 5px solid rgb(231, 231, 231); */
+}
+
+.artist h3, .tattoo h3 {
     color: rgb(255, 250, 250);
 }
 
-.artist p {
+.artist p, .tattoo p {
     color: rgb(255, 250, 250);
 }
 
@@ -314,21 +333,20 @@ div .artist-card {
 .home .challenge {
     padding: 30px 10px 20px 10px;
     font-family: 'Rye', cursive;
+    max-width: 1400px;
 }
 
 .challenge h1, .xpl-text p, .xpl-text a {
     color: rgb(37, 37, 37);
 }
 
-.home-img {
-    /* min-width: 1400px; */
-}
-
 .home-img img {
     justify-content: center;
     align-content: center;
     align-items: center;
-    max-height: 600px;
+    height: 600px;
+    max-width: 1800px;
+    background-size: contain;
 }
 
 .xpl-text {
@@ -337,7 +355,11 @@ div .artist-card {
     text-align: center;
     margin: 0 auto;
     padding-bottom: 30px; 
-    font-family: Arial, Helvetica, sans-serif;   
+    font-family: 'Patrick Hand', cursive;   
+}
+
+.xpl-text a {
+    max-width: 1400px;
 }
 
 
