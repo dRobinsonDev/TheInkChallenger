@@ -1,1 +1,1 @@
-web: gunicorn InkChallenger.wsgi
+web: gunicorn inkchallenger.wsgi
