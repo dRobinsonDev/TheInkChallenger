@@ -1,6 +1,3 @@
--- Neo-Traditional tattos
-INSERT INTO main_app_tattoo (name, style, description, url)
-VALUES ("Eagle", "neo_traditional", "B&W eagle on a skull with red detail", "https://i.imgur.com/4B7JF57.jpg?1")
 
 INSERT INTO main_app_tattoo (name, style, description, url)
 VALUES ("Gypsy_Lady", "neo_traditional", "B&W gypsy lady with colorful details", "https://i.imgur.com/gigMJdo.jpg")
