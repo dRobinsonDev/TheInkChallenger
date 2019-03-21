@@ -56,13 +56,14 @@ def Create_Event(request):
         data = event_form.cleaned_data
         print(data)
         e = event_form.save()
-        return redirect('events')
+        return render(request, 'events/checkout.html', context)
       else:
         error_message = 'That time is booked please pick anoter time.'
     event_form = EventForm()
     context = {'event_form': event_form, 'error_message': error_message}
     return render(request, 'events/createEvent.html', context)
 
+def Checkout(request):
 
     # return render(request, 'events/createEvent.html', {
     #      'event_form': event_form

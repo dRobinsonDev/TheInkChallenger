@@ -5,7 +5,7 @@
 {% block content %}
 <div id="event">
     {% if error_message %}<img class='randomTat' src='{{ error_message }}'/>{% endif %}
-    <form method="post">
+    <form method="post" action="{%url 'checkout' %}">
         {% csrf_token %}
         {{ event_form.as_table }}
         <input type="submit" class="btn" value="Book Appointment">
