@@ -65,9 +65,9 @@ def Create_Event(request):
 
 def Checkout(request):
 
-    # return render(request, 'events/createEvent.html', {
-    #      'event_form': event_form
-    # })
+    return render(request, 'events/createEvent.html', {
+         'event_form': event_form
+    })
 
 def random_Tattoo(request):
     if 'randomTat' in request.session:
