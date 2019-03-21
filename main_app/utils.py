@@ -16,7 +16,6 @@ class EventCalendar(HTMLCalendar):
         events_html = "<ul>"
         for event in events_from_day:
             artist = Artist.objects.get(id=event.artist)
-            print(artist)
             events_html += "<br>" + event.get_absolute_url() + "<br> - "+ artist.name + "<br>"
         events_html += "</ul>"
 

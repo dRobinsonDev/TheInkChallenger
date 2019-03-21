@@ -76,13 +76,12 @@ c = Artist.objects.all()
 choices = []
 for choice in c:
     choices.append((choice.id, choice.name))
-    print(choice.id, choice.name)
 
 class Event(models.Model):
-    day = models.DateField(u'Day of the event', help_text=u'Day of the event')
-    start_time = models.TimeField(u'Starting time', help_text=u'Starting time')
-    end_time = models.TimeField(u'Final time', help_text=u'Final time')
-    notes = models.TextField(u'Textual Notes', help_text=u'Textual Notes', blank=True, null=True)
+    day = models.DateField(u'Day of the event')
+    start_time = models.TimeField(u'Starting time')
+    end_time = models.TimeField(u'Final time')
+    notes = models.TextField(u'Textual Notes', blank=True, null=True)
     artist = models.IntegerField(choices=choices, default=choices[0])
  
     class Meta:
@@ -103,6 +102,7 @@ class Event(models.Model):
     def get_absolute_url(self):
         url = reverse('admin:%s_%s_change' % (self._meta.app_label, self._meta.model_name), args=[self.id])
         return u'<a href="%s">%s</a>' % (url, str(self.start_time))
+        # time.strftime(add hour)
  
     def clean(self):
         if self.end_time <= self.start_time:

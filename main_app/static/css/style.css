@@ -321,3 +321,24 @@ div .artist-card {
         font-size: 30px;
     }
 }
+/* random tat css */
+.randomTat {
+    width: 100px;
+    height: 100px;
+}
+/* event css */
+#event {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+#event form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.error {
+    color:red;
+}

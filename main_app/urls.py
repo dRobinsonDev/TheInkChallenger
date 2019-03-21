@@ -3,14 +3,16 @@ from . import views
 
 urlpatterns = [
     path('', views.Home.as_view(), name="home"),
-    # path('about/', views.About.as_view(), name="about"),
-    path('contact/', views.Contact.as_view(), name="contact"),
+    # path('about/', views.Ab   out.as_view(), name="about"),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', views.signup, name='signup'),
     path('artists/', views.Artist.as_view(), name="artists"),
+    path('contact/', views.Contact.as_view(), name="contact"),
+    path('events/', views.Create_Event, name='events'),
     path('shops/', views.Shop.as_view(), name="shops"),
     path('tattoos/', views.Tattoo.as_view(), name="tattoos"),
     path('tattoos/appointment', views.Appointment.as_view(), name="appointments"),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/signup/', views.signup, name='signup'),
+    path('tattoos/random', views.random_Tattoo, name="random_tattoo"),
 ]
 
 
@@ -21,5 +23,5 @@ urlpatterns = [
 # accounts/password_change/done/ [name='password_change_done']
 # accounts/password_reset/ [name='password_reset']
 # accounts/password_reset/done/ [name='password_reset_done']
-# accounts/reset/<uidb64>/<token>/ [name='password_reset_confirm']
 # accounts/reset/done/ [name='password_reset_complete']
+# accounts/reset/<uidb64>/<token>/ [name='password_reset_confirm']

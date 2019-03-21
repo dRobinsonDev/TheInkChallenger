@@ -4,7 +4,12 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
-from .models import User, Artist, Location, Tattoo, Appointment, Profile, Photo
+from django.shortcuts import redirect
+import random
+from .models import User, Artist, Location, Tattoo as TattooModel, Appointment, Profile, Photo
+from .forms import *
+from .utils import *
+
 
 
 # Create your views here.
@@ -37,20 +42,48 @@ class Tattoo(TemplateView):
 class Appointment(TemplateView):
     template_name = 'appointments.html'
 
+def Create_Event(request):
+    error_message = request.session['randomTat']
+    
+    if request.method == "POST":
+      event_form = EventForm(request.POST)
+      if event_form.is_valid():
+        data = event_form.cleaned_data
+        print(data)
+        e = event_form.save()
+        return redirect('events')
+      else:
+        error_message = 'That time is booked please pick anoter time.'
+    event_form = EventForm()
+    context = {'event_form': event_form, 'error_message': error_message}
+    return render(request, 'events/createEvent.html', context)
+
+
+    # return render(request, 'events/createEvent.html', {
+    #      'event_form': event_form
+    # })
+
+def random_Tattoo(request):
+    rand= random.choice(TattooModel.objects.all())
+    request.session['randomTat'] = rand.url # pass vars like PHP
+    context = { 'rand': rand }
+    return render(request, 'tattoos/details.html', context)
+    # return HttpResponse(f'<img class="randomTat" src="{rand.url}"/>')
+
 def signup(request):
-  error_message = ''
-  if request.method == "POST":
-    form = UserCreationForm(request.POST)
-    if form.is_valid():
-      user = form.save()
-      login(request,user)
-      return redirect('index')
+    error_message = ''
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request,user)
+            return redirect('home')
+        else:
+            error_message = 'Invalid credentials - try again'
     else:
-      error_message = 'Invalid credentials - try again'
+        form = UserCreationForm()
+        context = {'form': form, 'error_message': error_message}
 
-  form = UserCreationForm()
-  context = {'form': form, 'error_message': error_message}
-
-  class Meta:
-    model = User 
-  return render(request, 'registration/signup.html', context)
+    class Meta:
+        model = User 
+    return render(request, 'registration/signup.html', context)

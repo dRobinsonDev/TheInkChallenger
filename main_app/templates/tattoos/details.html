@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="event">
+    <img class='randomTat' src="{{rand.url}}" alt="">
+    <a href="{% url 'events' %}">Make Appointment</a>
+</div>
+{% endblock %}
