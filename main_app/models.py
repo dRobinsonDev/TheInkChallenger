@@ -91,7 +91,7 @@ class Event(models.Model):
     def check_overlap(self, fixed_start, fixed_end, new_start, new_end):
         overlap = False
         if new_start == fixed_end or new_end == fixed_start:    #edge case
-            overlap = False
+            overlap = Fal
         elif (new_start >= fixed_start and new_start <= fixed_end) or (new_end >= fixed_start and new_end <= fixed_end): #innner limits
             overlap = True
         elif new_start <= fixed_start and new_end >= fixed_end: #outter limits

@@ -53,7 +53,7 @@ def Create_Event(request):
     error_message = ''
     try:
         user = JoinTable.objects.get(profile=request.user.id)
-        if len(user) > 0 and user != None:
+        if user > 0 and user != None:
             ev = Event.objects.get(id=user.appointment)
             l = Location.objects.get(id=user.location)
             art = Artist.objects.get(id=user.artist)
@@ -96,7 +96,7 @@ def Create_Event(request):
             data = event_form.cleaned_data
             e = event_form.save()
             join_data = JoinTable()
-            if len(JoinTable.objects.get(profile=request.user.id)) > 0:
+            if JoinTable.objects.get(profile=request.user.id):
                 pass
             else:
                 ev = Event.objects.get(id=e.appointment)
@@ -149,7 +149,7 @@ def Create_Event(request):
 def event_checkout(request):
     try:
         user = JoinTable.objects.get(profile=request.user.id)
-        if len(user) > 0 and user != None:
+        if user and user != None:
             ev = Event.objects.get(id=user.appointment)
             l = Location.objects.get(id=user.location)
             art = Artist.objects.get(id=user.artist)
@@ -191,7 +191,7 @@ def random_Tattoo(request):
     try:
         if request.user.id:
             user = JoinTable.objects.get(profile=request.user.id)
-            if user and user != None:
+            if  user :
                 rand = user
                 ev = Event.objects.get(id=user.appointment)
                 l = Location.objects.get(id=user.location)
@@ -224,15 +224,19 @@ def random_Tattoo(request):
                 }
                 return render(request, 'tattoos/details.html', context)
     except:
-        rand= random.choice(TattooModel.objects.filter(available=True))  # filter style & results next
-        if len(rand) > 0:
+        if TattooModel.objects.filter(available=True):
+            rand= random.choice(TattooModel.objects.filter(available=True))  # filter style & results next
+        if  rand:
             rand.available = False
             rand.save()
-            request.session['randomTat'] = rand.url # cool pass sess vars like PHP
+            tattoo = TattooModel.objects.filter(id=  request.session['tattooId'])
+            request.session['randomTat'] = tattoo # cool pass sess vars like PHP
             request.session['tattooId'] = rand.id 
         try:
             join_data = JoinTable.objects.get(profile=request.user.id)
-            join_data[0].tattoo = t.id
+            join_data.tattoo = t.id
+            context = { 'rand':  request.session['randomTat'] }
+
         except:
             pass
         context = { 'rand': request.session['randomTat'] }
