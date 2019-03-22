@@ -58,12 +58,43 @@ def Create_Event(request):
         print(data)
         e = event_form.save()
         join_data = JoinTable()
-        join_data.event = e.id
+        join_data.event = 1
         join_data.artist = e.artist
         join_data.tattoo = request.session['randomTat']
         join_data.profile = request.user.id
         join_data.location = e.location
         join_data.save()
+        ev = Appointment.objects.get(id=e.artist)
+        l = Location.objects.get(id=e.location)
+        art = Artist.objects.get(id=1)
+        t = Tattoo.objects.get(id=request.session['tattooId'])
+
+        appointment = {
+            'date': ev.date,
+            'time': ev.time
+        }
+        artist = {
+            'name': art.name,
+            'phone_number': art.phone_number,
+            'email': art.email
+        }
+        location = {
+            'name': l.name,
+            'address': l.street,
+            'city': l.city
+        }
+        tattoo = {
+            'url': request.session['randomTat'],
+            'style': t.style,
+            'name': t.name
+        }
+        context = {
+            'appointment': appointment,
+            'artist': artist,
+            'location': location,
+            'tattoo': tattoo
+        }
+        print(context)
         return render(request, 'events/checkout.html', context)
       else:
         error_message = 'That time is booked please pick anoter time.'
@@ -71,8 +102,8 @@ def Create_Event(request):
     context = {'event_form': event_form, 'error_message': error_message}
     return render(request, 'events/createEvent.html', context)
 
-def Checkout(request):
-    return render(request, 'events/checkout.html')
+# def Checkout(request):
+#     return render(request, 'events/checkout.html')
 
 def random_Tattoo(request):
     if 'randomTat' in request.session:

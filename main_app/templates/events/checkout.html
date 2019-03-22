@@ -1,19 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<script src="simpleCart.js"></script>
-<script>
-    simpleCart({
-        checkout: { 
-            type: "PayPal" , 
-            email: "you@yours.com" ,
-            tax:        0.00,
-            currency:   "USD"
-        }
-    }); 
-</script>
 <div class="simpleCart_shelfItem">
     <img src="{{tattoo.url}}" style="height: 300px; width: 300px" class="item_thumb">
-    <h2 class="item_name"> {{ tattoo.style.upper }} </h2>
+    <h2 class="item_name"> {{ tattoo.style }} </h2>
     <h3 class="item_name"> {{ tattoo.name }} </h3>
     <p>
         Appointment: {{ appointment.date }} at {{ appointment.time }},<br> 
@@ -22,7 +11,7 @@
         Contact: {{ artist.phone_number }} / {{ artist.email }}
     </p>
     <input type="text" value="1" class="item_Quantity">
-    <span class="item_price">$50.00</span>ç
+    <span class="item_price">$50.00</span>
 </div>
 </div>
     <br />
