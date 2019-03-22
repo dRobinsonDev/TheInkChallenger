@@ -119,8 +119,13 @@ class Event(models.Model):
                             event.start_time) + '-' + str(event.end_time))
 
 class JoinTable(models.Model):
-    appointment = models.ForeignKey(Event, on_delete=models.CASCADE)
-    tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    # appointment = models.ForeignKey(Event, on_delete=models.CASCADE)
+    # tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
+    # artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    # profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    # location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    appointment = models.Integer()
+    tattoo = models.Integer()
+    artist = models.Integer()
+    profile = models.Integer()
+    location = models.Integer()

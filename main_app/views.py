@@ -65,11 +65,11 @@ def Create_Event(request):
         art = Artist.objects.get(id=1)
         t = Tattoo.objects.get(id=request.session['tattooId'])
 
-        join_data.event = e
-        join_data.artist = art
-        join_data.tattoo = t
+        join_data.event = e.id
+        join_data.artist = art.id
+        join_data.tattoo = t.id
         join_data.profile = request.user.id
-        join_data.location = l
+        join_data.location = l.id
         join_data.save()
         appointment = {
             'date': ev.date,
