@@ -7,6 +7,7 @@ from datetime import date
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.urls import reverse
+from django.conf import settings
 from django import forms
 # If A belongs to B, A holds fk (id of B) and if 
 # upon deleti
