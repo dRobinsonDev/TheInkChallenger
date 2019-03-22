@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+<main class="tat-challenge">
 <div id="event">
     <img class='randomTat' src="{{url}}" alt="">
-    <a href="{% url 'appointments' %}">Make Appointment</a>
+    <a href="{% url 'appointments' %}">Congratulations! <br> Make Appointment</a>
 </div>
+</main>
 {% endblock %}

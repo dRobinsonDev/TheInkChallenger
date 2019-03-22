@@ -29,6 +29,14 @@ body {
     background-size: cover;
 }
 
+.tat-challenge {
+    background-image: url('../images/background/horizontal/romina-farias-778232-unsplash_crop.jpg');
+    background-size: cover;
+    min-height: 600px;
+}
+
+
+
 header {
     /* position: fixed; */
     max-width: 1400px;
@@ -394,7 +402,39 @@ div .artist-card {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    background: rgba(37, 37, 37, .5);
+    height: 700px;
+    width: 700px;
+    border: 5px solid rgba(255, 250, 250, .5);
+    margin: 0 auto;
 }
+
+#event img {
+    height: 250px;
+    width: 250px;
+    border-radius: 3%;
+}
+#event a {
+    padding: 20px 0 0 0;
+    font-size: 35px;
+}
+
+#event input {
+    text-align: center;
+}
+
+#event .btn {
+    background-color: rgb(37, 37, 37);
+    border: 2px solid rgb(255, 250, 250);
+    margin-top: 20px;
+    height: 40px;    
+}
+
+#event .active {
+    font-size: 30px;
+    color: rgb(255, 250, 250);
+}
+
 #event form {
     display: flex;
     flex-flow: column nowrap;
