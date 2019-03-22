@@ -1,8 +1,10 @@
 * {
-    margin: 0 auto;
+    margin: 0;
 }
 
-
+html {
+    line-height: normal;
+}
 body {
     font-family: 'Vollkorn SC', serif, 'Rye', cursive, Arial, Helvetica, sans-serif;
     background: rgb(37, 37, 37);
@@ -27,6 +29,13 @@ body {
 .login-pg {
     background-image: url('../images/background/jake-davies-235504-unsplash.jpg');
     background-size: cover;
+}
+
+.event {
+    background-image: url('../images/background/alora-griffiths-781422-unsplash.jpg');
+    background-size: cover;
+    min-height: 600px;
+    max-height: 1500px;
 }
 
 header {
@@ -62,7 +71,7 @@ header .logo-home {
     display: block;
     float: left;
     font-size: 24px;
-    padding: 10px 30px;
+    padding: 5px 30px;
     text-decoration: none;
 }
 
@@ -146,7 +155,7 @@ header .menu-ham:checked ~ .menu-icon:not(.steps) .navicon:before, header .menu-
 
 #ink-logo p {
     font-family: 'Rye', cursive;
-    font-size: 85px;
+    font-size: 80px;
     color: rgb(255, 250, 250);
     margin-block-start: 0;
     margin-block-end: 0;
@@ -169,12 +178,15 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: fixed; */
     bottom: 0;
     max-width: 1400px;
     height: 30px;
     background: rgb(37, 37, 37);
     margin: 0 auto;
+}
+
+.footer div {
+    display: flex;
 }
 
 a {
@@ -186,12 +198,13 @@ a {
     vertical-align: middle;
 }
 
-.right {
+#right > a {
     float: right;
 }
 
-.left {
-    float: left;
+#left a {
+    text-align: left;
+    margin-left: 0;
 }
 
 h1 {
@@ -325,15 +338,17 @@ div .artist-card {
 }
 
 .home {
-    /* border-top: 3px solid rgb(255, 250, 250);
-    border-bottom: 3px solid rgb(255, 250, 250); */
     background: rgb(255, 250, 250);
 }
 
 .home .challenge {
-    padding: 30px 10px 20px 10px;
+    padding: 10px;
     font-family: 'Rye', cursive;
     max-width: 1400px;
+}
+
+.challenge h1 {
+    margin: 10px 0;
 }
 
 .challenge h1, .xpl-text p, .xpl-text a {
@@ -355,7 +370,8 @@ div .artist-card {
     text-align: center;
     margin: 0 auto;
     padding-bottom: 30px; 
-    font-family: 'Patrick Hand', cursive;   
+    font-family: 'Patrick Hand', cursive;  
+    line-height: 1.5; 
 }
 
 .xpl-text a {
