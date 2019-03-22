@@ -4,8 +4,9 @@
 {% endblock %}
 {% block content %}
 <div id="event">
-    {% if error_message %}<img class='randomTat' src='{{ error_message }}'/>{% endif %}
-    <form method="post">
+    {% if error_message %} <h2 class='red'> {{error_message }}</h2>{% endif %}
+    {% if error_message %}<img class='randomTat' src='{{ tattoo_image }}'/>{% endif %}
+    <form method="post" action="{% url 'event_checkout' %}">
         {% csrf_token %}
         {{ event_form.as_table }}
         <input type="submit" class="btn" value="Book Appointment">

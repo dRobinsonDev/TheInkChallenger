@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    {% if tattoo %}
     <div class="simpleCart_shelfItem flexCol">
         <img src="{{tattoo.url}}" style="height: 300px; width: 300px" class="item_thumb">
         <h2 class="item_name"> {{ tattoo.style }}<br>
@@ -21,20 +20,16 @@
         <p>-----------------------------</p><br />
         <p>Final Total: $50.00</p> <br />
         <br />
-        <a href="javascript:;" class="simpleCart_checkout">Checkout</a>	
-
+        <button>
+                <a href="{% url 'home' %}" class="simpleCart_checkout">Checkout</a>	
+        </button>   
     </div>
     </div class="flexCol">
         
 
-        <a href="javascript:;" class="simpleCart_checkout">Checkout</a>	
-
+     
     <div id="test_id"></div>
-    {% else %}
-        <br>
-        <h1 class='red'> Sorry We have no tattoo details for you please vist <a href="{% url 'tattoos' %}">Tattoos</a></h1>
-        <br>
-    {% endif %}
+   
 
 
 {% endblock %}
