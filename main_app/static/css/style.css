@@ -494,6 +494,6 @@ div .artist-card {
     width: 200px;
     height: 200px;
 }
-form {
+form input{
     color: white !important;
 }
