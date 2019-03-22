@@ -198,7 +198,7 @@ def event_checkout(request):
         data = event_form.cleaned_data
         e = event_form.save()
         join_data = JoinTable()
-        if JoinTable.objects.get(profile=request.user.id).exists():
+        if JoinTable.objects.filter(profile=request.user.id):
             user = JoinTable.objects.get(profile=request.user.id)
             ev = Event.objects.get(id=user.appointment)
             l = Location.objects.get(id=user.location)
@@ -235,13 +235,51 @@ def event_checkout(request):
                 'location': location,
                 'tattoo': tattoo
             }
-
-        return render(request, 'events/checkout.html', context)
+            return render(request, 'events/checkout.html', context)
       else:
+        e = event_form.save()
         error_message = 'That time is booked please pick anoter time.'
-    event_form = EventForm()
-    context = {'event_form': event_form, 'error_message': error_message}
-    return render(request, 'events/createEvent.html', context)
+        ev = Event.objects.get(id=e.appointment)
+        l = Location.objects.get(id=e.location)
+        art = Artist.objects.get(id=e.artist)
+        t = Tattoo.objects.get(id=request.session['tattooId'])
+        join_data.appointment = e.id
+        join_data.artist = art.id
+        join_data.tattoo = t.id
+        t.available = False
+        t.save()
+        join_data.profile = request.user.id
+        join_data.location = l.id
+        join_data.save()
+        appointment = {
+            'date': ev.day,
+            'time': ev.start_time
+        }
+        artist = {
+            'name': art.name,
+            'phone_number': art.phone_number,
+            'email': art.email
+        }
+        location = {
+            'name': l.name,
+            'address': l.street,
+            'city': l.city
+        }
+        tattoo = {
+            'url': request.session['randomTat'],
+            'style': t.style,
+            'name': t.name
+        }
+        context = {
+            'appointment': appointment,
+            'artist': artist,
+            'location': location,
+            'tattoo': tattoo
+        }
+    else:
+        event_form = EventForm()
+        context = {'event_form': event_form, 'error_message': error_message}
+        return render(request, 'events/createEvent.html', context)
 
 
 @login_required
