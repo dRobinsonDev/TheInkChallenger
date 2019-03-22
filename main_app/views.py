@@ -53,22 +53,24 @@ def Create_Event(request):
     if request.method == "POST":
       event_form = EventForm(request.POST)
       if event_form.is_valid():
+        event_form.save(commit=False)
+        del event_form.fields['location']
         data = event_form.cleaned_data
         # form.cleaned_data['my_form_field_name']
         print(data)
         e = event_form.save()
         join_data = JoinTable()
-        join_data.event = 1
-        join_data.artist = e.artist
-        join_data.tattoo = request.session['randomTat']
-        join_data.profile = request.user.id
-        join_data.location = e.location
-        join_data.save()
         ev = Appointment.objects.get(id=e.artist)
         l = Location.objects.get(id=e.location)
         art = Artist.objects.get(id=1)
         t = Tattoo.objects.get(id=request.session['tattooId'])
 
+        join_data.event = e
+        join_data.artist = art
+        join_data.tattoo = t
+        join_data.profile = request.user.id
+        join_data.location = l
+        join_data.save()
         appointment = {
             'date': ev.date,
             'time': ev.time
