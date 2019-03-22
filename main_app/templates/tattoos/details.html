@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+<main class="event">
+    <h1>Take the Challenge</h1>
 <div id="event">
     <img class='randomTat' src="{{url}}" alt="">
     <a href="{% url 'appointments' %}">Make Appointment</a>
 </div>
+</main>
 {% endblock %}
