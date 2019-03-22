@@ -243,6 +243,7 @@ def random_Tattoo(request):
 
 def signup(request):
     error_message = ''
+    context = {}
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
