@@ -60,7 +60,7 @@ def Create_Event(request):
         print(data)
         e = event_form.save()
         join_data = JoinTable()
-        ev = Appointment.objects.get(id=e.artist)
+        ev = Event.objects.get(id=e.artist)
         l = Location.objects.get(id=e.location)
         art = Artist.objects.get(id=1)
         t = Tattoo.objects.get(id=request.session['tattooId'])

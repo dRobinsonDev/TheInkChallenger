@@ -61,7 +61,7 @@ class Profile(models.Model):
         return f"{self.user}"
    
 class JoinTable(models.Model):
-    appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE)
+    appointment = models.ForeignKey(Event, on_delete=models.CASCADE)
     tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
