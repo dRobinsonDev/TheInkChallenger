@@ -60,12 +60,6 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.user}"
    
-class JoinTable(models.Model):
-    appointment = models.ForeignKey(Event, on_delete=models.CASCADE)
-    tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
 
 class Photo(models.Model):
     url = models.CharField(max_length=250)
@@ -123,3 +117,10 @@ class Event(models.Model):
                     raise ValidationError(
                         'There artist already has an appointment on : ' + str(event.day) + ', ' + str(
                             event.start_time) + '-' + str(event.end_time))
+
+class JoinTable(models.Model):
+    appointment = models.ForeignKey(Event, on_delete=models.CASCADE)
+    tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
