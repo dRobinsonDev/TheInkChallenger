@@ -3,7 +3,7 @@
 <main class="tattoo">
     <h1 class="title">Meet Your TATTOO</h1>
     <div id="floater">
-        <form  action="{% url 'random_tattoo' %}">
+        <form  method="GET" action="{% url 'random_tattoo' %}">
             <button class="btn-challenge" type='submit'>Join The Challenge</button>
         </form>
     </div>
