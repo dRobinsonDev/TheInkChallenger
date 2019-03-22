@@ -9,11 +9,7 @@ from django.core.exceptions import ValidationError
 from django.urls import reverse
 from django.conf import settings
 from django import forms
-# If A belongs to B, A holds fk (id of B) and if 
-# upon deleti
-# on of B, A also needs to be deleted, than include cascade delete
-# Create your models here.
- 
+
 
 
 class Location(models.Model):
@@ -49,7 +45,8 @@ class Tattoo(models.Model):
     available = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.name}"    
+        
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -105,7 +102,6 @@ class Event(models.Model):
     def get_absolute_url(self):
         url = reverse('admin:%s_%s_change' % (self._meta.app_label, self._meta.model_name), args=[self.id])
         return u'<a href="%s">%s</a>' % (url, str(self.start_time))
-        # time.strftime(add hour)
  
     def clean(self):
         if self.end_time <= self.start_time:
@@ -120,13 +116,9 @@ class Event(models.Model):
                             event.start_time) + '-' + str(event.end_time))
 
 class JoinTable(models.Model):
-    # appointment = models.ForeignKey(Event, on_delete=models.CASCADE)
-    # tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
-    # artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
-    # profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    # location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    appointment = models.Integer()
-    tattoo = models.Integer()
-    artist = models.Integer()
-    profile = models.Integer()
-    location = models.Integer()
+    appointment = models.IntegerField()
+    tattoo = models.IntegerField()
+    artist = models.IntegerField()
+    profile = models.IntegerField()
+    location = models.IntegerField()
+

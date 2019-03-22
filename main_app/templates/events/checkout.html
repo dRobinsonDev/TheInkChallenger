@@ -1,28 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="simpleCart_shelfItem">
-    <img src="{{tattoo.url}}" style="height: 300px; width: 300px" class="item_thumb">
-    <h2 class="item_name"> {{ tattoo.style }} </h2>
-    <h3 class="item_name"> {{ tattoo.name }} </h3>
-    <p>
-        Appointment: {{ appointment.date }} at {{ appointment.time }},<br> 
-        With: {{ artist.name }}<br>
-        Shop: {{ location.name }} - {{ location.street}} {{ location.city }}<br>
-        Contact: {{ artist.phone_number }} / {{ artist.email }}
-    </p>
-    <input type="text" value="1" class="item_Quantity">
-    <span class="item_price">$50.00</span>
-</div>
-</div>
-    <br />
-    SubTotal: <span id="simpleCart_total" class="simpleCart_total"></span> <br />
-    Tax Rate: None <br />
-    Tax: None <br />
-    -----------------------------<br />
-    Final Total: <span id="simpleCart_grandTotal" class="simpleCart_grandTotal"></span> <br />
 
-    <a href="javascript:;" class="simpleCart_checkout">Checkout</a>	
+    {% if tattoo %}
+    <div class="simpleCart_shelfItem flexCol">
+        <img src="{{tattoo.url}}" style="height: 300px; width: 300px" class="item_thumb">
+        <h2 class="item_name"> {{ tattoo.style }}<br>
+                                {{ tattoo.name}}  </h2>
+        <p>
+            Appointment: {{ appointment.date }} at {{ appointment.time }},<br> 
+            With: {{ artist.name }}<br>
+            Shop: {{ location.name }} - {{ location.street}} {{ location.city }}<br>
+            Contact: {{ artist.phone_number }} / {{ artist.email }}
+        </p>
+        <input type="text" value="1" class="item_Quantity">
+        <span class="item_price">$50.00</span>
 
-<div id="test_id"></div>
+        <p>SubTotal: <span id="simpleCart_total" class="simpleCart_total"></span> </p><br />
+        <p>Tax Rate: 0 </p><br />
+        <p>Tax: 0 </p><br />
+        <p>-----------------------------</p><br />
+        <p>Final Total: $50.00</p> <br />
+        <br />
+        <a href="javascript:;" class="simpleCart_checkout">Checkout</a>	
+
+    </div>
+    </div class="flexCol">
+        
+
+        <a href="javascript:;" class="simpleCart_checkout">Checkout</a>	
+
+    <div id="test_id"></div>
+    {% else %}
+        <br>
+        <h1 class='red'> Sorry We have no tattoo details for you please vist <a href="{% url 'tattoos' %}">Tattoos</a></h1>
+        <br>
+    {% endif %}
+
 
 {% endblock %}

@@ -17,13 +17,13 @@ class EventAdmin(admin.ModelAdmin):
         extra_context = extra_context or {}
  
         if not after_day:
-            ds = datetime.date.today()
+            d = datetime.date.today()
         else:
             try:
                 split_after_day = after_day.split('-')
-                ds = datetime.date(year=int(split_after_day[0]), month=int(split_after_day[1]), day=1)
+                d = datetime.date(year=int(split_after_day[0]), month=int(split_after_day[1]), day=1)
             except:
-                ds = datetime.date.today()
+                d = datetime.date.today()
  
         previous_month = datetime.date(year=d.year, month=d.month, day=1)  # find first day of current month
         previous_month = previous_month - datetime.timedelta(days=1)  # backs up a single day
