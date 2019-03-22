@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="simpleCart_shelfItem flexCol">
+        <img src="{{tattoo.url}}" style="height: 300px; width: 300px" class="item_thumb">
+        <h2 class="item_name"> {{ tattoo.style }}<br>
+                                {{ tattoo.name}}  </h2>
+        <p>
+            Appointment: {{ appointment.date }} at {{ appointment.time }},<br> 
+            With: {{ artist.name }}<br>
+            Shop: {{ location.name }} - {{ location.street}} {{ location.city }}<br>
+            Contact: {{ artist.phone_number }} / {{ artist.email }}
+        </p>
+        <input type="text" value="1" class="item_Quantity">
+        <span class="item_price">$50.00</span>
+
+        <p>SubTotal: <span id="simpleCart_total" class="simpleCart_total"></span> </p><br />
+        <p>Tax Rate: 0 </p><br />
+        <p>Tax: 0 </p><br />
+        <p>-----------------------------</p><br />
+        <p>Final Total: $50.00</p> <br />
+        <br />
+        <button>
+                <a href="{% url 'home' %}" class="simpleCart_checkout">Checkout</a>	
+        </button>   
+    </div>
+    </div class="flexCol">
+        
+
+     
+    <div id="test_id"></div>
+   
+
+
+{% endblock %}

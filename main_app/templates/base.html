@@ -12,14 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Patrick+Hand+SC|Rye|Vollkorn+SC" rel="stylesheet">
-    <link rel="stylesheet" href="../static/sass/clockpicker.scss">
     {% block links %}
     {% endblock  %}
 </head>
 
 <body>
     <header>
-            <a class="logo-home" href="{% url 'home' %}"><img src="../static/images/inklogo-inverted.png" style="width: 70px;"></a>
+            <a class="logo-home" href="{% url 'home' %}"><img src="../static/images/inklogo-inverted.png" alt="The INK Challenger" style="width: 70px;"></a>
         </div>
         <input class="menu-ham" type="checkbox" id="menu-ham" />
         <label class="menu-icon" for="menu-ham"><span class="navicon"></span></label>

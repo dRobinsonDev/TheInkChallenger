@@ -2,6 +2,11 @@
 {% block content %}
 <main class="tattoo">
     <h1 class="title">Meet Your TATTOO</h1>
+    <div id="floater">
+        <form  action="{% url 'random_tattoo' %}">
+            <button type='submit'>Join The Challenge</button>
+        </form>
+    </div>
 
 
     <div>
@@ -14,8 +19,23 @@
             <h3>{{tattoo.name}}</h3>
             <p>{{tattoo.style.upper}}</p>
         </div>
-        
         {% endfor %}
     </div>
 </main>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js></script>
+<script>
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            var winScrollTop = $(window).scrollTop();
+            var winHeight = $(window).height();
+            var floaterHeight = $('#floater').outerHeight(true);
+            //true so the function takes margins into account
+            var fromBottom = 20;
+        
+            var top = winScrollTop + winHeight - floaterHeight - fromBottom;
+            $('#floater').css({'top': top + 'px'});
+        });
+    })
+       
+</script>
 {% endblock %}
