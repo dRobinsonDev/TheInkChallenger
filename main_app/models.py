@@ -61,11 +61,11 @@ class Profile(models.Model):
         return f"{self.user}"
    
 class JoinTable(models.Model):
-    appointment_id = models.ForeignKey(Appointment, on_delete=models.CASCADE)
-    tattoo_id = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
-    artist_id = models.ForeignKey(Artist, on_delete=models.CASCADE)
-    profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    location_id = models.ForeignKey(Location, on_delete=models.CASCADE)
+    appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE)
+    tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
 
 class Photo(models.Model):
     url = models.CharField(max_length=250)
@@ -78,9 +78,10 @@ c = Artist.objects.all()
 choices = []
 for choice in c:
     choices.append((choice.id, choice.name))
+
 s = Location.objects.all()
 shops = []
-for shop in c:
+for shop in s:
     shops.append((shop.id, shop.name))
 
 class Event(models.Model):

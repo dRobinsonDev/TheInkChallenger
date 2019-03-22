@@ -54,14 +54,15 @@ def Create_Event(request):
       event_form = EventForm(request.POST)
       if event_form.is_valid():
         data = event_form.cleaned_data
+        # form.cleaned_data['my_form_field_name']
         print(data)
         e = event_form.save()
         join_data = JoinTable()
-        join_data.event_id = e.id
-        join_data.artist_id = e.artist
-        join_data.tattoo_id = request.session['randomTat']
-        join_data.profile_id = request.user.id
-        join_data.location_id = e.location
+        join_data.event = e.id
+        join_data.artist = e.artist
+        join_data.tattoo = request.session['randomTat']
+        join_data.profile = request.user.id
+        join_data.location = e.location
         join_data.save()
         return render(request, 'events/checkout.html', context)
       else:
@@ -71,8 +72,7 @@ def Create_Event(request):
     return render(request, 'events/createEvent.html', context)
 
 def Checkout(request):
-
-    return render(request, 'events/createEvent.html')
+    return render(request, 'events/checkout.html')
 
 def random_Tattoo(request):
     if 'randomTat' in request.session:
