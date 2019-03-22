@@ -23,9 +23,9 @@
         <input class="menu-ham" type="checkbox" id="menu-ham" />
         <label class="menu-icon" for="menu-ham"><span class="navicon"></span></label>
         <ul class="menu">
-            <li><a href="{% url 'contact' %}">Contact</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'tattoos' %}">Tattoos</a></li>
+            <li><a href="{% url 'random_tattoo' %}">Challenge</a></li>
             <li><a href="{% url 'artists' %}">Artists</a></li>
             <li><a href="{% url 'shops' %}">Shops</a></li>
             <li><a href="{% url 'random_tattoo' %}">Challenge</a></li>

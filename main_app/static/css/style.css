@@ -31,6 +31,7 @@ body {
     background-size: cover;
 }
 
+<<<<<<< HEAD
 .event {
     background-image: url('../images/background/alora-griffiths-781422-unsplash.jpg');
     background-size: cover;
@@ -38,6 +39,16 @@ body {
     max-height: 1500px;
 }
 
+=======
+.tat-challenge {
+    background-image: url('../images/background/horizontal/romina-farias-778232-unsplash_crop.jpg');
+    background-size: cover;
+    min-height: 600px;
+}
+
+
+
+>>>>>>> refs/remotes/origin/master
 header {
     /* position: fixed; */
     max-width: 1400px;
@@ -380,7 +391,6 @@ div .artist-card {
 
 
 
-
 @media (min-width: 1000px) {
     header li {
         float: left;
@@ -411,7 +421,39 @@ div .artist-card {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    background: rgba(37, 37, 37, .5);
+    height: 700px;
+    width: 700px;
+    border: 5px solid rgba(255, 250, 250, .5);
+    margin: 0 auto;
 }
+
+#event img {
+    height: 250px;
+    width: 250px;
+    border-radius: 3%;
+}
+#event a {
+    padding: 20px 0 0 0;
+    font-size: 35px;
+}
+
+#event input {
+    text-align: center;
+}
+
+#event .btn {
+    background-color: rgb(37, 37, 37);
+    border: 2px solid rgb(255, 250, 250);
+    margin-top: 20px;
+    height: 40px;    
+}
+
+#event .active {
+    font-size: 30px;
+    color: rgb(255, 250, 250);
+}
+
 #event form {
     display: flex;
     flex-flow: column nowrap;
@@ -497,9 +539,9 @@ div .artist-card {
     margin: 0 auto;
     margin-top: 40px;
     font-size: 20px;
-    background: rgba(255, 250, 250,0);
+    background: rgba(255, 250, 250);
     border-radius: 5px;
-    color: red;
+    color: rgb(37, 37, 37);
     padding: 5px 15px;
     border: 3px solid rgb(255, 250, 250);
 }
