@@ -192,7 +192,6 @@ def event_checkout(request):
       event_form = EventForm(request.POST)
       if event_form.is_valid():
         data = event_form.cleaned_data
-        print(data)
         e = event_form.save()
         join_data = JoinTable()
         user = JoinTable.objects.get(profile=request.user.id)
@@ -248,7 +247,8 @@ def random_Tattoo(request):
                 rand = JoinTable.objects.get(profile=request.user.id)
                 url = Tattoo.objects.all()[rand.tattoo].url
         except:
-            url = Tattoo.objects.all[0].url
+            url = Tattoo.objects.all()[0].url
+            rand = url
 
         context = { 'rand': rand, 'url': url }
         print(context)
