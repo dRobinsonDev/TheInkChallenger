@@ -51,7 +51,7 @@ class Tattoo(models.Model):
         return f"{self.name}"
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=150, default=None)
     phone_number = models.CharField(max_length=100, default=None)
