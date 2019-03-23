@@ -31,7 +31,6 @@ body {
     background-size: cover;
 }
 
-<<<<<<< HEAD
 .event {
     background-image: url('../images/background/alora-griffiths-781422-unsplash.jpg');
     background-size: cover;
@@ -39,7 +38,6 @@ body {
     max-height: 1500px;
 }
 
-=======
 .tat-challenge {
     background-image: url('../images/background/horizontal/romina-farias-778232-unsplash_crop.jpg');
     background-size: cover;
@@ -48,7 +46,6 @@ body {
 
 
 
->>>>>>> refs/remotes/origin/master
 header {
     /* position: fixed; */
     max-width: 1400px;
@@ -422,15 +419,15 @@ div .artist-card {
     justify-content: center;
     align-items: center;
     background: rgba(37, 37, 37, .5);
-    height: 700px;
+    /* height: 700px; */
     width: 700px;
     border: 5px solid rgba(255, 250, 250, .5);
     margin: 0 auto;
 }
 
 #event img {
-    height: 250px;
-    width: 250px;
+    height: 175px;
+    width: 175px;
     border-radius: 3%;
 }
 #event a {

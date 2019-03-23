@@ -3,7 +3,7 @@
 
 {% endblock %}
 {% block content %}
-<main class="event">
+<!-- <main class="event">
     <h1>Book Your Tattoo</h1>
     <div id="event">
         {% if error_message %}<img class='randomTat' src='{{ error_message }}' />{% endif %}
@@ -13,16 +13,24 @@
             <input type="submit" class="btn" value="Book Appointment">
         </form>
     </div>
-</main>
+</main> -->
 
 <div id="event">
-    {% if error_message %} <h2 class='red'> {{error_message }}</h2>{% endif %}
-    {% if error_message %}<img class='randomTat' src='{{ tattoo_image }}'/>{% endif %}
+    {% if error_message %} <h4 class='red'> {{error_message }}</h4>{% endif %}
+    {% if tattoo_message %} 
+    
+        <h4 class='red center'> {{tattoo_message }}</h4>
+        <p><a href="tattoos/details">See Details</a>
+        </p>
+    {% else %}
+    <img class='randomTat' src='{{ tattoo }}'/>
     <form method="post" action="{% url 'event_checkout' %}">
         {% csrf_token %}
         {{ event_form.as_table }}
         <input type="submit" class="btn" value="Book Appointment" style="color: rgb(37, 37, 37)">
     </form>
+    {% endif %}
+    <br>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

@@ -2,6 +2,9 @@
 {% block content %}
 
     <div class="simpleCart_shelfItem flexCol">
+        {% if returning %}
+        <h1 class='center'>Sorry youy have taken advantage of this promotion already.</h1>
+        {% else %}
         <img src="{{tattoo.url}}" style="height: 300px; width: 300px" class="item_thumb">
         <h2 class="item_name"> {{ tattoo.style }}<br>
                                 {{ tattoo.name}}  </h2>
@@ -24,6 +27,7 @@
                 <a href="{% url 'home' %}" class="simpleCart_checkout">Checkout</a>	
         </button>   
     </div>
+    {% endif %}
     </div class="flexCol">
         
 
