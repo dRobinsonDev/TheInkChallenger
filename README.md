@@ -1,5 +1,5 @@
 # The Ink Challenge
-By Demetrious Robinson, Sun Park and Danillo Vieira for General Assembly Project 3
+By Sun Park, Danillo Vieira and Demetrious Robinson  for General Assembly's Group Project week  - building a Full Stack Django Application
 Click [here](http://inkchallenger.herokuapp.com/) to try it out!
 
 
@@ -34,7 +34,6 @@ Artists Page
 * Django
 * Python
 * postgresql
-* AmozonS3
 * Github
 * Heroku
 * oAuth
