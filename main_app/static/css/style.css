@@ -11,9 +11,15 @@ body {
 }
 
 .contact {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
     background-image: url('../images/background/horizontal/flavio-gasperini-596276-unsplash_crop.jpg');
     background-size: cover;
     min-height: 700px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
 }
 .artist {
     background-image: url('../images/background/romina-farias-778232-unsplash.jpg');
@@ -190,11 +196,12 @@ main {
     max-width: 1400px;
     height: 30px;
     background: rgb(37, 37, 37);
-    margin: 0 auto;
+    margin: 1em auto 0 auto;
 }
 
 .footer div {
     display: flex;
+    margin-right: 1em;
 }
 
 a {
@@ -465,16 +472,38 @@ div .artist-card {
     justify-content: center;
     align-items: center;
 }
-.error {
-    color:red;
+.error, ul.errorlist li {
+    color:red !important;
 }
 /* checkout css */
-.flexCol {
+.flex {
     display: flex;
+}
+.flexCol {
     flex-flow: column nowrap;
+    align-items: center;
     color: white !important;
 }
-
+.flexRow {
+    justify-content: space-around;
+}
+.flexRow img {
+    width: 100px;
+    height: 100px;
+    margin: 1em 0;
+}
+.creators div {
+    width: 30%;
+    height: 300px;
+    justify-content: center;
+    text-align: center;
+}
+.creators div h5 {
+    height: 60px;
+}
+.creators div h3 {
+    height: 96px;
+}
 /*  unavailable tattoos ribbons */
 .box {
     width: 200px; height: 300px;
@@ -559,4 +588,15 @@ div .artist-card {
 }
 form input{
     color: white !important;
+}
+@media screen and (max-width: 500px) {
+    .flexRow {
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .creators .flex {
+        margin: 1em 0;
+
+    }
 }

@@ -1,19 +1,17 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.core import serializers
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponse
+import json
+import random
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.shortcuts import redirect
-from django.core import serializers
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404
-import json
-import random
-from .models import User, Artist, Location, Tattoo as TattooModel, Appointment, Profile, Photo
 from .getContext import *
 from .forms import *
+from .models import User, Artist, Location, Tattoo as TattooModel, Appointment, Profile, Photo
 from .utils import *
 
 
@@ -57,7 +55,56 @@ class Appointment(TemplateView):
 @login_required
 def event_checkout(request):
     # updating event_checkout  to DRY code
-    return render(request, 'tattoos')
+    tattoo_message = ''
+    error_message = ''
+    event_form = EventForm()
+    try:
+        if JoinTable.objects.filter         (profile=request.user.id):
+            tattoo_message = 'Sorry you have already participated in the Ink Challenge.'
+            print('working first')
+    except:
+        pass
+    if request.method == "POST":
+        event_form = EventForm(request.POST)
+        if event_form.is_valid():
+            data = event_form.cleaned_data
+            e = event_form.save()
+            ev = Event.objects.get(id=e.id)
+            l = Location.objects.get(id=e.location)
+            art = Artist.objects.get(id=e.artist)
+
+            t = Tattoo.objects.get(id=request.session['tattooId'])
+            join_data = JoinTable()
+            join_data.appointment = e.id
+            join_data.artist = art.id
+            join_data.tattoo = t.id
+            join_data.profile = request.user.id
+            join_data.location = l.id
+            join_data.save()
+            t.available = False
+            t.save()
+            print(join_data)
+            context = getUserContext(request.user.id)
+            return render(request, 'events/checkout.html', context)
+
+
+    if 'randomTat' in request.session:
+            tattoo = request.session.get('randomTat')
+            try:
+                tattoo = json.loads(tattoo)
+                tattoo = tattoo[0]['fields']['url']
+            except:
+                tattoo = tattoo[0]['fields']['url']
+    else:
+        return render('tattoos/random')
+    context = {
+        'error_message': error_message,
+        'tattoo_message': tattoo_message,
+        'event_form': event_form,
+        'tattoo': tattoo,
+    }
+    print('working last')
+    return render(request, 'events/createEvent.html', context)
 
 
 @login_required
@@ -75,9 +122,13 @@ def random_Tattoo(request):
             return render(request, 'tattoos/details.html', context)
         if 'randomTat' in request.session:
             rand = request.session.get('randomTat')
-            rand = json.loads(rand)
-            url = rand[0]['fields']['url']
+            try:
+                rand = json.loads(rand)
+                url = rand[0]['fields']['url']
+            except:
+                url = rand[0]['fields']['url']
             url = str(url)
+            request.session['tattooId'] = rand[0]['pk']
             context = { 'rand': url}
             return render(request, 'tattoos/details.html', context)
         else: 
@@ -85,6 +136,8 @@ def random_Tattoo(request):
             rand = serializers.serialize("json", [rand])
             rand = json.loads(rand)
             request.session['randomTat'] = rand
+            request.session['tattooId'] = rand[0]['pk']
+
             context = {'rand': rand[0]['fields']['url']}
             return render(request, 'tattoos/details.html', context)
 
@@ -106,3 +159,9 @@ def signup(request):
     class Meta:
         model = User 
     return render(request, 'registration/signup.html', context)
+def event_payment(request):
+    print(request, 'hello')
+    context = {}
+    context = getUserContext(request, request.user.id)
+
+    return render(request, 'events/checkout.html', context)

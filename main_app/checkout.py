@@ -34,7 +34,7 @@ def Create_Event(request):
                 'location': location,
                 'tattoo': tattoo
             }
-            return render(request, 'events/checkout.html', context)
+            return render('events/checkout.html', context)
     except:
             context = {}
     

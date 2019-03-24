@@ -121,3 +121,5 @@ class JoinTable(models.Model):
     profile = models.IntegerField()
     location = models.IntegerField()
 
+class Payments(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

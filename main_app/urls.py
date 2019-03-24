@@ -9,6 +9,7 @@ urlpatterns = [
     path('contact/', views.Contact.as_view(), name="contact"),
     path('events/', views.event_checkout, name='event_checkout'),
     path('events/checkout', views.event_checkout, name='event_checkout'),
+    path('events/payments', views.event_payment, name='event_payment'),
     path('shops/', views.ShopList.as_view(), name="shops"),
     path('tattoos/', views.TattooList.as_view(), name="tattoos"),
     path('tattoos/random', views.random_Tattoo, name="random_tattoo"),

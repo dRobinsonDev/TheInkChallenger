@@ -1,6 +1,6 @@
 from .models import *
 
-def getUserContext(userNum):
+def getUserContext(request, userNum):
     user = JoinTable.objects.get(profile=userNum)
     ev = Event.objects.get(id=user.appointment)
     l = Location.objects.get(id=user.location)
