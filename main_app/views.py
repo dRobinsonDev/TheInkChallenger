@@ -84,7 +84,7 @@ def event_checkout(request):
             t.available = False
             t.save()
             print(join_data)
-            context = getUserContext(request.user.id)
+            context = getUserContext(request, request.user.id)
             return render(request, 'events/checkout.html', context)
 
 
@@ -132,7 +132,7 @@ def random_Tattoo(request):
             context = { 'rand': url}
             return render(request, 'tattoos/details.html', context)
         else: 
-            rand = random.choice(Tattoo.objects.all())
+            rand = random.choice(Tattoo.objects.filter(available=True))
             rand = serializers.serialize("json", [rand])
             rand = json.loads(rand)
             request.session['randomTat'] = rand
