@@ -2,7 +2,7 @@
 By Sun Park (P), Demetrious Robinson (R), and Danillo Vieira (V) for General Assembly's Group Project week  - building a Full Stack Django Application
 Click [here](http://inkchallenger.herokuapp.com/) to try it out!
 
-
+Click [here](https://onedrive.live.com/View.aspx?resid=FA8B793D1DE798A9!318&authkey=!AM7NxJz8PK5sWKI) to view our pitch deck
 
 
 ## Description

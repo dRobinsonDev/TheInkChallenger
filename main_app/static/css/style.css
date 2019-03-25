@@ -488,8 +488,8 @@ div .artist-card {
     justify-content: space-around;
 }
 .flexRow img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     margin: 1em 0;
 }
 .creators div {
