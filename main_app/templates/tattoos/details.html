@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <main class="tat-challenge">
-<h1 class="title">Your INK Challenge</h1>
-<div>
-    {% if error_message %} <h1>{{error_message}}</h1> {% endif %}
-    <img class='randomTat' src="{{rand}}" alt="">
-    <button><a href="{% url 'event_checkout' %}">Accept Challenge</a></button>
-</div>
+    <div id="tat-challenge">
+        <h1 class="title">START THE INK CHALLENGE</h1>
+        
+            {% if error_message %} <h1>{{error_message}}</h1> {% endif %}
+            <img class='randomTat' src="{{rand}}" alt="">
+            {{tattoo.name}}
+            <button><a href="{% url 'event_checkout' %}" style="-webkit-text-stroke: 1px black; font-size: 40px;">Accept
+                    Challenge</a></button>
+        
+    </div>
 </main>
 {% endblock %}

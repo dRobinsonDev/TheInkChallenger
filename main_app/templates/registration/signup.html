@@ -8,13 +8,13 @@
             <form action="{% url 'signup' %}" method="post">
                 {% csrf_token %}
                 <label for="first_name">First Name: </label>
-                <input type="text">
+                <input id="first" type="text" autocomplete="new-text">
                 <label for="last_name">Last Name: </label>
-                <input type="text">
+                <input id="last" type="text" autocomplete="new-text">
                 <label for="email">Email: </label>
-                <input type="text">
+                <input id="email" type="text" autocomplete="new-email">
                 {{form.as_p}}
-                <button type="submit" class="btn" value="Sign Up">Sign Up</button>
+                <button type="submit" class="" value="Sign Up">Sign Up</button>
             </form><br>
         </div>
     </div>
