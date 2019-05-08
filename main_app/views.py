@@ -59,7 +59,7 @@ def event_checkout(request):
     error_message = ''
     event_form = EventForm()
     try:
-        if JoinTable.objects.filter         (profile=request.user.id):
+        if JoinTable.objects.filter(profile=request.user.id):
             tattoo_message = 'Sorry you have already participated in the Ink Challenge.'
             print('working first')
     except:
