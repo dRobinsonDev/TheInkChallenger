@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<div id="event">
+<main class="tat-challenge">
+<h1 class="title">Your INK Challenge</h1>
+<div>
+    {% if error_message %} <h1>{{error_message}}</h1> {% endif %}
     <img class='randomTat' src="{{rand}}" alt="">
-    <a href="{% url 'events' %}">Make Appointment</a>
+    <button><a href="{% url 'event_checkout' %}">Accept Challenge</a></button>
 </div>
+</main>
 {% endblock %}

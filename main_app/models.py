@@ -7,12 +7,9 @@ from datetime import date
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.urls import reverse
+from django.conf import settings
 from django import forms
-# If A belongs to B, A holds fk (id of B) and if 
-# upon deleti
-# on of B, A also needs to be deleted, than include cascade delete
-# Create your models here.
- 
+
 
 
 class Location(models.Model):
@@ -48,23 +45,18 @@ class Tattoo(models.Model):
     available = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.name}"    
+        
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    address = models.CharField(max_length=150)
-    phone_number = models.CharField(max_length=100)
-    tattoo = models.CharField(max_length=100)
+    address = models.CharField(max_length=150, default=None)
+    phone_number = models.CharField(max_length=100, default=None)
 
     def __str__(self):
         return f"{self.user}"
    
-class JoinTable(models.Model):
-    appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE)
-    tattoo = models.ForeignKey(Tattoo, on_delete=models.CASCADE)
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
 class Photo(models.Model):
     url = models.CharField(max_length=250)
@@ -73,17 +65,23 @@ class Photo(models.Model):
     def __str__(self):
         return f"{self.artist} {self.url}"
 
-c = Artist.objects.all()
-choices = []
-for choice in c:
-    choices.append((choice.id, choice.name))
+
+s = Location.objects.all()
+shops = []
+for shop in s:
+    shops.append((shop.id, shop.name))
 
 class Event(models.Model):
     day = models.DateField(u'Day of the event')
     start_time = models.TimeField(u'Starting time')
     end_time = models.TimeField(u'Final time')
     notes = models.TextField(u'Textual Notes', blank=True, null=True)
+    c = Artist.objects.all()
+    choices = []
+    for choice in c:
+        choices.append((choice.id, choice.name))
     artist = models.IntegerField(choices=choices, default=choices[0])
+    location = models.IntegerField(choices=shops, default=shops[0])
  
     class Meta:
         verbose_name = u'Scheduling'
@@ -103,7 +101,6 @@ class Event(models.Model):
     def get_absolute_url(self):
         url = reverse('admin:%s_%s_change' % (self._meta.app_label, self._meta.model_name), args=[self.id])
         return u'<a href="%s">%s</a>' % (url, str(self.start_time))
-        # time.strftime(add hour)
  
     def clean(self):
         if self.end_time <= self.start_time:
@@ -116,3 +113,13 @@ class Event(models.Model):
                     raise ValidationError(
                         'There artist already has an appointment on : ' + str(event.day) + ', ' + str(
                             event.start_time) + '-' + str(event.end_time))
+
+class JoinTable(models.Model):
+    appointment = models.IntegerField()
+    tattoo = models.IntegerField()
+    artist = models.IntegerField()
+    profile = models.IntegerField()
+    location = models.IntegerField()
+
+class Payments(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

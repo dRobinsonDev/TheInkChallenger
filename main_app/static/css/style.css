@@ -1,17 +1,22 @@
 * {
-    margin: 0 auto;
+    margin: 0;
 }
 
+html {
+    line-height: normal;
+}
 
 body {
     font-family: 'Vollkorn SC', serif, 'Rye', cursive, Arial, Helvetica, sans-serif;
     background: rgb(37, 37, 37);
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .contact {
     background-image: url('../images/background/horizontal/flavio-gasperini-596276-unsplash_crop.jpg');
     background-size: cover;
-    min-height: 700px;
 }
 .artist {
     background-image: url('../images/background/romina-farias-778232-unsplash.jpg');
@@ -29,14 +34,25 @@ body {
     background-size: cover;
 }
 
-header {
-    /* position: fixed; */
-    max-width: 1400px;
+.event {
+    background-image: url('../images/background/alora-griffiths-781422-unsplash.jpg');
+    background-size: cover;
+    min-height: 600px;
+    max-height: 1500px;
+}
+
+.tat-challenge {
+    background-image: url('../images/background/horizontal/feliperizo-co-heart-made-505560-unsplash.jpg');
+    background-size: cover;
+}
+
+.header {
     width: 100%;
     z-index: 3;
     min-height: 50px;
     background: rgb(37, 37, 37);
-    font-family: 'Rye', cursive;
+    font-family: 'Rye', cursive;   
+
 }
 
 header ul {
@@ -48,7 +64,7 @@ header ul {
 
 header li a {
     display: block;
-    padding: 5px 30px;
+    padding: 5px 5px;
     text-decoration: none;
     min-width: 50px;
 }
@@ -62,8 +78,9 @@ header .logo-home {
     display: block;
     float: left;
     font-size: 24px;
-    padding: 10px 30px;
+    padding: 12px 30px;
     text-decoration: none;
+    align-self: center;
 }
 
 header .menu {
@@ -137,16 +154,15 @@ header .menu-ham:checked ~ .menu-icon:not(.steps) .navicon:before, header .menu-
 
 }
 
-#ink-logo {
-    /* display: flex; */
-    max-width: 1400px;
+#ink-name {
+    /* max-width: 1400px; */
     min-height: 130px;
     margin-top: 30px;
 }
 
-#ink-logo p {
+#ink-name p {
     font-family: 'Rye', cursive;
-    font-size: 85px;
+    font-size: 70px;
     color: rgb(255, 250, 250);
     margin-block-start: 0;
     margin-block-end: 0;
@@ -159,22 +175,32 @@ main {
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    /* background: rgb(255, 250, 250); */
+    background: rgb(37, 37, 37);
     font-family: 'Vollkorn SC', serif;
     margin: 0;
     /* margin-bottom: 50px; */
 }
 
-.footer {   
+.footer-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     /* position: fixed; */
     bottom: 0;
-    max-width: 1400px;
+    background: rgb(37, 37, 37);
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+}
+
+.footer {   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-flow: row wrap; */
+    /* max-width: 80%; */
+    width: 100%;
     height: 30px;
     background: rgb(37, 37, 37);
-    margin: 0 auto;
 }
 
 a {
@@ -187,25 +213,28 @@ a {
 }
 
 .right {
+    display: flex;
     float: right;
 }
 
-.left {
-    float: left;
+.left a {
+    text-align: left;
+    margin-left: 0;
 }
 
 h1 {
-    color: rgba(255, 250, 250, 0.911);
+    color: rgba(255, 250, 250);
     justify-content: center;
     text-align: center;
 }
 
 main .title {
-    padding-top: 60px;
+    padding-top: 50px;
     padding-bottom: 30px;
     font-size: 50px;
     -webkit-text-stroke: 1px black;
     font-family: 'Rye', cursive;
+    margin: 0 auto;
 }
 
 h2 {
@@ -215,7 +244,7 @@ h2 {
 }
 
 .login h2 {
-    font-size: 35px;
+    font-size: 50px;
     color: white;
 }
 
@@ -260,16 +289,20 @@ h2 {
 }
 
 .login form button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
     margin-top: 40px;
-    font-size: 20px;
-    background: rgb(255, 250, 250);
+    background: rgba(37, 37, 37, .9);
     color: black;
-    padding: 5px 15px;
-    border: 3px solid rgb(255, 250, 250);
+    padding: 15px;
+    color: rgb(255, 250, 250);
+    border: 2px solid rgba(37, 37, 37, .9);
+    border-radius: 5%;
+    font-size: 30px;
+    font-family: 'Volkorn SC', serif;
+}
+
+.login label {
+    font-size: 20px;
 }
 
 .login label, label[for=id_password], label[for=id_username] {
@@ -325,15 +358,17 @@ div .artist-card {
 }
 
 .home {
-    /* border-top: 3px solid rgb(255, 250, 250);
-    border-bottom: 3px solid rgb(255, 250, 250); */
     background: rgb(255, 250, 250);
 }
 
 .home .challenge {
-    padding: 30px 10px 20px 10px;
+    padding: 10px;
     font-family: 'Rye', cursive;
-    max-width: 1400px;
+}
+
+.challenge h1 {
+    margin: 10px 0;
+
 }
 
 .challenge h1, .xpl-text p, .xpl-text a {
@@ -344,9 +379,10 @@ div .artist-card {
     justify-content: center;
     align-content: center;
     align-items: center;
-    height: 600px;
+    width: 100%;
     max-width: 1800px;
     background-size: contain;
+    background: rgb(37, 37, 37);
 }
 
 .xpl-text {
@@ -355,15 +391,245 @@ div .artist-card {
     text-align: center;
     margin: 0 auto;
     padding-bottom: 30px; 
-    font-family: 'Patrick Hand', cursive;   
+    font-family: 'Patrick Hand', cursive;  
+    line-height: 1.5; 
 }
 
 .xpl-text a {
     max-width: 1400px;
 }
 
+.tat-challenge div {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+}
 
+.tat-challenge img {
+    height: 300px;
+    width: 300px;
+    margin: 30px;
+    border: 2px solid rgba(255, 250, 250, 0.8);
+    border-radius: 3%;
+    align-self: center;
+}
 
+.tat-challenge button {
+    margin: 40px 0 50px 0;
+    font-size: 35px;
+    background: rgba(37, 37, 37, .1);
+    color: black;
+    padding: 5px 30px 15px 30px;
+    color: rgb(255, 250, 250);
+    border: 3px solid rgba(255, 250, 250, .9);
+    font-family: 'Rye', cursive;
+}
+
+#event {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background: rgba(37, 37, 37, .5);
+    width: 700px;
+    border: 1px solid rgba(255, 250, 250);
+    margin: 0 auto;
+}
+
+#event img {
+    height: 375px;
+    width: 375px;
+    border-radius: 3%;
+}
+
+#event a {
+    padding: 20px 0 0 0;
+    font-size: 35px;
+}
+
+#event input {
+    text-align: center;
+}
+
+#event .btn {
+    background-color: rgb(37, 37, 37);
+    border: 2px solid rgb(255, 250, 250);
+    margin-top: 20px;
+    height: 40px;    
+}
+
+#event .active {
+    font-size: 30px;
+    color: rgb(255, 250, 250);
+}
+
+#event form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.error, ul.errorlist li {
+    color:red !important;
+}
+/* checkout css */
+.flex {
+    display: flex;
+}
+.flexCol {
+    flex-flow: column nowrap;
+    align-items: center;
+    color: white !important;
+}
+.flexRow {
+    justify-content: space-around;
+}
+.flexRow img {
+    width: 200px;
+    height: 200px;
+    margin: 1em 0;
+}
+.creators div {
+    width: 30%;
+    height: 300px;
+    justify-content: center;
+    text-align: center;
+}
+.creators div h5 {
+    height: 60px;
+}
+.creators div h3 {
+    height: 96px;
+}
+/*  unavailable tattoos ribbons */
+.box {
+    width: 200px; height: 300px;
+  position: relative;
+  border: 1px solid #BBB;
+  background: #EEE;
+}
+.ribbon {
+    position: absolute;
+    right: -5px; top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px; height: 75px;
+  text-align: right;
+}
+.ribbon span {
+  font-size: 10px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: #79A70A;
+  background: linear-gradient(#B6BAC9 0%, #808080 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 19px; right: -21px;
+}
+.ribbon span::before {
+  content: "";
+  position: absolute; left: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid #808080;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #808080;
+}
+.ribbon span::after {
+    content: "";
+  position: absolute; right: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #808080;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #808080;
+}
+
+#floater {
+  position: absolute;
+  top: 100px;
+  right: 1px;
+  width: 100px;
+  height: 100px;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+  z-index: 1;
+}
+
+#floater button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 40px;
+    font-size: 20px;
+    background: rgba(255, 250, 250);
+    border-radius: 5px;
+    color: rgb(37, 37, 37);
+    padding: 5px 15px;
+    border: 3px solid rgb(255, 250, 250);
+}
+
+.simpleCart_shelfItem .simpleCart_checkout {
+    width: 250px;
+    align-self: center;
+}
+
+button .simpleCart_checkout {
+    -webkit-text-stroke: 1px black;
+    color: rgb(255, 250, 250);
+    line-height: 1px;
+    width: 150px;
+    background: rgba(255, 250, 250, .1);
+}
+
+.tat-challenge .simpleCart_shelfItem .simpleCart_checkout{
+    margin: 40px 0 50px 0;
+    font-size: 35px;
+    padding: 5px 30px 15px 30px;
+    color: rgb(255, 250, 250);
+    border: 3px solid rgba(255, 250, 250, .5);
+    font-family: 'Rye', cursive;
+    border-radius: 3%;
+}
+
+.simpleCart_shelfItem {
+    color: rgb(255, 250, 250);
+    justify-content: center;
+    text-align: center;
+}
+
+.simpleCart_shelfItem h2 {
+    font-size: 35px;
+    margin: 15px;
+}
+
+.simpleCart_shelfItem p {
+    font-size: 25px;
+}
+
+form input{
+    color: white !important;
+}
+
+@media screen and (max-width: 500px) {
+    .flexRow {
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .creators .flex {
+        margin: 1em 0;
+        
+    }
+}
 
 @media (min-width: 1000px) {
     header li {
@@ -383,25 +649,4 @@ div .artist-card {
     h1 {
         font-size: 30px;
     }
-}
-/* random tat css */
-.randomTat {
-    width: 100px;
-    height: 100px;
-}
-/* event css */
-#event {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-#event form {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-.error {
-    color:red;
 }

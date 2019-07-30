@@ -1,9 +1,8 @@
 from django.contrib import admin
 from .models import *
-import datetime
 import calendar
+import datetime
 from django.urls import reverse
-from calendar import HTMLCalendar
 from django.utils.safestring import mark_safe
 from .utils import *
  
@@ -15,7 +14,6 @@ class EventAdmin(admin.ModelAdmin):
     def changelist_view(self, request, extra_context=None):
         after_day = request.GET.get('day__gte', None)
         extra_context = extra_context or {}
- 
         if not after_day:
             d = datetime.date.today()
         else:
@@ -47,12 +45,10 @@ class EventAdmin(admin.ModelAdmin):
         return super(EventAdmin, self).changelist_view(request, extra_context)
 
 admin.site.register(Event, EventAdmin)
-# Register your models here.
 
-# Were models already migrated? If so, changing AUTH_USER_MODEL can't be done automatically and requires manual fixing possibly reapplying some migrations
 admin.site.register(Tattoo)
-admin.site.register(Appointment)
 admin.site.register(Profile)
 admin.site.register(Artist)
 admin.site.register(Location)
+admin.site.register(JoinTable)
 

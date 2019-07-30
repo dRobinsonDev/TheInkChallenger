@@ -1,8 +1,15 @@
 # The Ink Challenge
+<<<<<<< HEAD
 By Demetrious Robinson, Sun Park and Danillo Vieira for General Assembly Project 3
 Click [here](http://inkchallenger.herokuapp.com/) to try it out!
 
 
+=======
+By Sun Park (P), Demetrious Robinson (R), and Danillo Vieira (V) for General Assembly's Group Project week  - building a Full Stack Django Application
+Click [here](http://inkchallenger.herokuapp.com/) to try it out!
+
+Click [here](https://onedrive.live.com/View.aspx?resid=FA8B793D1DE798A9!318&authkey=!AM7NxJz8PK5sWKI) to view our pitch deck
+>>>>>>> 95b423ada8e3c32fd4466516e1355eb91bc01c7d
 
 
 ## Description
@@ -34,8 +41,18 @@ Artists Page
 * Django
 * Python
 * postgresql
+<<<<<<< HEAD
 * AmozonS3
+=======
+>>>>>>> 95b423ada8e3c32fd4466516e1355eb91bc01c7d
 * Github
 * Heroku
 * oAuth
 * Trello - click [here](https://trello.com/b/595tEhne/the-ink-challenger) for Trello planning/mapping board
+<<<<<<< HEAD
+=======
+Collapse
+
+
+
+>>>>>>> 95b423ada8e3c32fd4466516e1355eb91bc01c7d
