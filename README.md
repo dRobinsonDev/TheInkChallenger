@@ -1,16 +1,8 @@
 # The Ink Challenge
-<<<<<<< HEAD
-By Demetrious Robinson, Sun Park and Danillo Vieira for General Assembly Project 3
-Click [here](http://inkchallenger.herokuapp.com/) to try it out!
-
-
-=======
 By Sun Park (P), Demetrious Robinson (R), and Danillo Vieira (V) for General Assembly's Group Project week  - building a Full Stack Django Application
 Click [here](http://inkchallenger.herokuapp.com/) to try it out!
 
 Click [here](https://onedrive.live.com/View.aspx?resid=FA8B793D1DE798A9!318&authkey=!AM7NxJz8PK5sWKI) to view our pitch deck
->>>>>>> 95b423ada8e3c32fd4466516e1355eb91bc01c7d
-
 
 ## Description
 PRV first devised the idea of the Ink Challenger one sunshine-y Tuesday afternoon. The idea was to introduce talented, reliable and experienced tattoo artists to tattoo novices and the experienced alike. Tattoo artists from all over the country contribute their tattoo art into the Ink Challenger's tattoo database which randomly generates a drawing and challenges the user to ink on the tattoo. Regardless of the distance, all of our tattoo parlors and artists are artistically and technically skilled. Sign up for the challenge and find out what your randomized tattoo will be and schedule an appointment with the artist of your choice. Schedule the appointment for the day and time you are available. Thanks for taking the challenge and we hope you enjoy the new tattoo for all of time!
@@ -40,19 +32,9 @@ Artists Page
 * JavaScript
 * Django
 * Python
-* postgresql
-<<<<<<< HEAD
-* AmozonS3
-=======
->>>>>>> 95b423ada8e3c32fd4466516e1355eb91bc01c7d
+* Postgresql
+* AWS S3
 * Github
 * Heroku
 * oAuth
 * Trello - click [here](https://trello.com/b/595tEhne/the-ink-challenger) for Trello planning/mapping board
-<<<<<<< HEAD
-=======
-Collapse
-
-
-
->>>>>>> 95b423ada8e3c32fd4466516e1355eb91bc01c7d
